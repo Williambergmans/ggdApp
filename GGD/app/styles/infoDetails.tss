@@ -1,0 +1,89 @@
+/**
+ * 	Style for The User Template
+ */
+".template":{
+	height:100,
+	width: Ti.UI.FILL 
+},
+
+".favorite":{
+	font:{
+		fontSize: 25,
+		fontFamily:"icomoon",
+	},
+	color:"#038BC8",
+	text:"\uf005",	
+	right: 10
+},
+
+".title":{
+	font:{
+		fontSize: 18
+	},
+	left: 85,
+	color: "#444"
+},
+
+".avatar":{
+	borderWidth: 1,
+	borderColor: "#acacac",
+	height: 75,
+	width: 75,
+	top: 12,
+	left: 0,
+	borderRadius: 35
+},
+
+".smoothAvatarBorderRadius": {
+	borderWidth: 1.5,
+	borderColor: "#acacac",
+	height: 75,
+	width: 75,
+	top: 12,
+	left: 0,
+	borderRadius: 35,
+	opacity: 0.6
+}
+ 
+".search":{ 
+	backgroundColor: "#fff",
+	borderWidth:0,
+	borderColor:"#fff",
+	tintColor: "#C41230",
+	hintText: "Search",
+	barColor: "#fff",
+	showBookmark:true
+},
+
+
+"#listView":{
+	tintColor: "#666",
+	backgroundColor:"#fff"
+}
+
+".lblMiddle":{
+	//height: 50,
+    width: Ti.UI.FILL,
+	textAlign: "center",
+	font:{
+		fontSize: 16
+	},
+	left: 10,
+	right: 10,
+	bottom: 10
+},
+
+".icon-long-btn":{
+	height: 50,
+    width: Ti.UI.FILL,
+	color: "#fff",
+	borderRadius: 2,
+	backgroundColor: "#e28833",
+	textAlign: "center",
+	font:{
+		fontSize: 18
+	},
+	left: 20,
+	right: 20,
+	bottom: 10
+},

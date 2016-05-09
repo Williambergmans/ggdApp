@@ -1,0 +1,11 @@
+<Alloy>
+		<Window id="kaart" title="kaart" class="container">
+			
+			  <View id="map" module="ti.map">	  
+		        	<Annotation myid='1' />		
+		        	        	
+		        </View>
+	
+	</Window>
+</Alloy>
+ 

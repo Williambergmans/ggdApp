@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<Alloy>
+	<Window id="meer" title="Meer" class="container">
+		<ListView id="elementsList" defaultItemTemplate="elementTemplate" separatorColor="transparent">
+			<Templates>
+				<ItemTemplate name="elementTemplate" class="template" layout="vertical">
+					<View id="menuProperties" class='hgroup size left-buffer size top-buffer' >
+						<Label bindId="menuicon" class="icon gray right-buffer" id="menuicon"/>
+						<Label bindId="name" id="name" class="h5" />  
+					</View>
+				</ItemTemplate>
+			</Templates>
+			<ListSection>		
+	</ListSection>
+		</ListView>
+	</Window>
+</Alloy>

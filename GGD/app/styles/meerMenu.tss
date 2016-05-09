@@ -1,0 +1,28 @@
+".template":{
+	height: 60,
+	width: Ti.UI.FILL
+},
+
+"#symbol[platform=android]": {
+	left: 0
+}
+"#menuProperties": {
+	
+	top: 22
+	 
+},
+"#menuProperties[platform=android]": {
+	
+},
+"#name": {
+	
+	color: "#828282",
+	font: { fontSize: 18 } 
+},
+
+'.icon':{
+	font:{
+		fontFamily: 'fontawesome', 
+		fontSize: 20 
+	}
+},

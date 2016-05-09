@@ -1,0 +1,9 @@
+
+".infoView" : {
+	
+	right: 10,
+	height: 200,
+    verticalAlign: Titanium.UI.TEXT_VERTICAL_ALIGNMENT_TOP,
+	top: 10,
+	
+}

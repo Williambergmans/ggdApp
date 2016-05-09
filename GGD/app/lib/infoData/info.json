@@ -1,0 +1,75 @@
+{"information":[
+  {
+    "id": "1",
+    "favorite": false,
+    "titel": "Alcohol",
+    "info" : "Alcohol zit in bier, wijn, mixdrankjes en shotjes. Het is een drug, die je lichaam langzaam verdooft en je gedrag verandert. Je kunt er vrolijk van worden, maar ook ziek of vervelend. Iedereen komt wel eens met alcohol in aanraking. Je ouders drinken wellicht alcohol, je gebruikt het zelf misschien wel eens of je hebt een vriend of vriendin die alcohol drinkt. Aan alcohol kun je helaas gemakkelijk verslaafd raken. Net als aan roken, gamen of drugs. Weet dus waar je aan begint! Meer weten, zien en lezen? Wil je meer informatie over alcohol en andere drugs? Klik dan hier.Bekijk een filmpje waarin een meisje zoveel drinkt dat ze in coma raakt. Het verhaal is gebaseerd op waargebeurde feiten, maar wordt hier nagespeeld. In een animatiefilmpje kun je zien wat er nou eigenlijk in je lichaam met je zenuwstelsel gebeurt als je alcohol drinkt. Handig om te weten!",
+    "photo": "http://www.ggdbzo.nl/jongeren/alcohol/PublishingImages/Alcohol.jpg",
+    "email": "mail@GGD.nl",
+    "phone": "123-456789"
+  },
+  
+   {
+    "id": "2",
+    "favorite": false,
+    "titel": "Drugs",
+    "info" : "Een op de vijf jongeren heeft wel eens hasj of wiet gerookt. Gebruik jij wel eens drugs? Je weet heus wel dat deze drugs niet goed voor je zijn. Maar het is spannend en gezellig. Samen met vrienden roken, XTC of een andere drug nemen. Je krijgt een lekker of vreemd gevoel. Je wilt het nog wel eens proberen. En voordat je het weet, is het een gewoonte.Meer weten, zien of lezen? Meer weten over allerlei soorten drugs? Gebruik je wel eens drugs en wil je weten of je verslaafd bent? Test jezelf! Blowen of juist niet? Kijk waar jij staat, check de filmpjes en doe de test. Jij bent in charge!",
+    "photo": "http://www.ggdbzo.nl/jongeren/drugs/PublishingImages/drugs.jpg",
+    "email": "mail@GGD.nl",
+    "phone": "123-456789"
+  },
+  
+  {
+    "id": "3",
+    "favorite": false,
+    "titel": "Infectieziekten",
+    "info" : " Infectieziekten worden veroorzaakt door bacteriën, virussen, schimmels of parasieten. Hepatitis, kinkhoest en voedselinfecties zijn voorbeelden van infectieziekten die in Nederland nog regelmatig voorkomen. Andere infectieziekten treden minder vaak op, maar kunnen ook grote gevolgen hebben. Dat geldt bijvoorbeeld voor legionella (veteranenziekte), meningitis (nekkramp), rode hond en mazelen.Wilt u weten of een kind met vlekjes het kinderdagverblijf mag bezoeken, een ziekte besmettelijk is, of welke (hygiëne)maatregelen mogelijk zijn om besmetting te voorkomen? Mail naar infectieziekten@ggdbzo.nl of bel 088 0031 333. ",
+    "photo": "http://www.ggdzeeland.nl/dynamisch/bibliotheek/cache/800_800_3_507_0_nl_shutterstock_54416914.jpg",
+    "email": "mail@GGD.nl",
+    "phone": "123-456789"
+  },
+  
+   {
+    "id": "4",
+    "favorite": false,
+    "titel": "Roken",
+    "info" : "Alcohol zit in bier, wijn, mixdrankjes en shotjes. Het is een drug, die je lichaam langzaam verdooft en je gedrag verandert. Je kunt er vrolijk van worden, maar ook ziek of vervelend. Iedereen komt wel eens met alcohol in aanraking. Je ouders drinken wellicht alcohol, je gebruikt het zelf misschien wel eens of je hebt een vriend of vriendin die alcohol drinkt. Aan alcohol kun je helaas gemakkelijk verslaafd raken. Net als aan roken, gamen of drugs. Weet dus waar je aan begint! Meer weten, zien en lezen? Wil je meer informatie over alcohol en andere drugs? Klik dan hier.Bekijk een filmpje waarin een meisje zoveel drinkt dat ze in coma raakt. Het verhaal is gebaseerd op waargebeurde feiten, maar wordt hier nagespeeld. In een animatiefilmpje kun je zien wat er nou eigenlijk in je lichaam met je zenuwstelsel gebeurt als je alcohol drinkt. Handig om te weten!",
+    "photo": "http://www.ggdbzo.nl/jongeren/roken/PublishingImages/Roken.jpg",
+    "email": "mail@GGD.nl",
+    "phone": "123-456789"
+  },
+  
+   {
+    "id": "5",
+    "favorite": false,
+    "titel": "Eten en bewegen",
+    "info" : "Een op de vijf jongeren heeft wel eens hasj of wiet gerookt. Gebruik jij wel eens drugs? Je weet heus wel dat deze drugs niet goed voor je zijn. Maar het is spannend en gezellig. Samen met vrienden roken, XTC of een andere drug nemen. Je krijgt een lekker of vreemd gevoel. Je wilt het nog wel eens proberen. En voordat je het weet, is het een gewoonte.Meer weten, zien of lezen? Meer weten over allerlei soorten drugs? Gebruik je wel eens drugs en wil je weten of je verslaafd bent? Test jezelf! Blowen of juist niet? Kijk waar jij staat, check de filmpjes en doe de test. Jij bent in charge!",
+    "photo": "http://www.ggdbzo.nl/jongeren/eten/PublishingImages/Gezond-eten.jpg",
+    "email": "mail@GGD.nl",
+    "phone": "123-456789"
+  },
+  
+  {
+    "id": "6",
+    "favorite": false,
+    "titel": "Vaccinaties",
+    "info" : " Infectieziekten worden veroorzaakt door bacteriën, virussen, schimmels of parasieten. Hepatitis, kinkhoest en voedselinfecties zijn voorbeelden van infectieziekten die in Nederland nog regelmatig voorkomen. Andere infectieziekten treden minder vaak op, maar kunnen ook grote gevolgen hebben. Dat geldt bijvoorbeeld voor legionella (veteranenziekte), meningitis (nekkramp), rode hond en mazelen.Wilt u weten of een kind met vlekjes het kinderdagverblijf mag bezoeken, een ziekte besmettelijk is, of welke (hygiëne)maatregelen mogelijk zijn om besmetting te voorkomen? Mail naar infectieziekten@ggdbzo.nl of bel 088 0031 333. ",
+    "photo": "http://www.dierenasiel-lelystad.nl/beelden/kattenasiel/reizigersvaccinaties.jpg", 
+    "email": "mail@GGD.nl",
+    "phone": "123-456789"
+  },
+  
+  {
+    "id": "7",
+    "favorite": false,
+    "titel": "Vaccinaties",
+    "info" : " Infectieziekten worden veroorzaakt door bacteriën, virussen, schimmels of parasieten. Hepatitis, kinkhoest en voedselinfecties zijn voorbeelden van infectieziekten die in Nederland nog regelmatig voorkomen. Andere infectieziekten treden minder vaak op, maar kunnen ook grote gevolgen hebben. Dat geldt bijvoorbeeld voor legionella (veteranenziekte), meningitis (nekkramp), rode hond en mazelen.Wilt u weten of een kind met vlekjes het kinderdagverblijf mag bezoeken, een ziekte besmettelijk is, of welke (hygiëne)maatregelen mogelijk zijn om besmetting te voorkomen? Mail naar infectieziekten@ggdbzo.nl of bel 088 0031 333. ",
+    "photo": "http://www.dierenasiel-lelystad.nl/beelden/kattenasiel/reizigersvaccinaties.jpg", 
+    "email": "mail@GGD.nl",
+    "phone": "123-456789"
+  }
+  
+  
+   
+]}
+ 

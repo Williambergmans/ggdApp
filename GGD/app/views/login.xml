@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<Alloy>
+	<Window id="login">
+		<View class="vgroup top size">
+			<View class="buffer vgroup size">
+				<ImageView id="logo"/>
+			</View>
+			<View class="buffer vgroup size">
+				<TextField hintText="Gebruikersnaam"   id="username"/>
+			</View>
+			<View class="buffer vgroup size">
+				<TextField hintText="Wachtwoord" id="password"   />
+			</View>
+			<View class="buffer vgroup size">
+				<Label id="loginButton" class="icon icon-long-btn icon-phone">Log in</Label>
+			</View>
+		</View>
+	</Window>
+</Alloy> 

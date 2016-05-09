@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<Alloy>
+	<Window id="info" title="Over deze app" tabBarHidden="true">
+		<TableView id="tableView" separatorColor="transparent">
+			<TableViewSection>
+				<HeaderView>
+					<View class="view-headerview-form">
+						<Label class="label-tableviewsection-header" text="Info"/>
+					</View>
+				</HeaderView>
+				<TableViewRow class="tableviewrow-form-row left infoView" id="title">
+					<View class="buffer">
+						<Label class=" top h5 gray" title="Info" value="Info" id="infoLbl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis animo aequo videt eum, quem inpure ac flagitiose putet vivere? Quam ob rem tandem, inquit, non satisfacit? Si est nihil nisi corpus, summa erunt illa: valitudo, vacuitas doloris, pulchritudo, cetera. Duo Reges: constructio interrete. Recte, inquit, intellegis. Ut non sine causa ex iis memoriae ducta sit disciplina.</Label>
+					</View>
+				</TableViewRow>
+			</TableViewSection>
+		</TableView>
+	</Window>
+</Alloy>

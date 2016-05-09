@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Alloy>
+	<Window id="register">
+		<View class="vgroup top size">
+			<View class="buffer vgroup size">
+				<ImageView id="logo"/>
+			</View>
+			<View class="buffer vgroup size">
+				<TextField hintText="Gebruikersnaam"   id="username"/>
+			</View>
+			<View class="buffer vgroup size">
+				<TextField hintText="Wachtwoord" id="password1"   />
+			</View>
+			<View class="buffer vgroup size">
+				<TextField hintText="Herhaal wachtwoord" id="password2"   />
+			</View>
+			<View class="buffer vgroup size">
+				<TextField hintText="Naam" id="name"   />
+			</View>
+			<View class="buffer vgroup size">
+				<TextField hintText="Email" id="email"   />
+			</View>
+			<View class="buffer vgroup size">
+				<Label id="registerButton" class="icon icon-long-btn icon-phone">Registreer</Label>
+			</View>
+		</View>
+	</Window>
+</Alloy>  

@@ -1,0 +1,52 @@
+
+".logBtn" : {
+	height: 50,
+    width: Ti.UI.FILL,
+	color: "#fff",
+	borderRadius: 2,
+	backgroundColor: "#3f5a95",
+	textAlign: "center",
+	font:{
+		fontSize: 18
+	},
+	left: 30,
+	right: 30,
+	bottom: 140
+
+}
+
+".regBtn" : {	
+	height: 50,
+    width: Ti.UI.FILL,
+	color: "#fff",
+	borderRadius: 2,
+	backgroundColor: "#515151",
+	textAlign: "center",
+	font:{
+		fontSize: 18
+	},
+	left: 30,
+	right: 30,
+	bottom: 80
+}
+
+".guestBtn" : {	
+	bottom: 55,
+	color: '#fff',
+	font:{
+		fontSize: 14
+	},
+}
+ 
+"#accountView" : {	
+backgroundColor: "#e28833",
+}
+ 
+"#logo" : {	
+	top:60,
+	width: 280,
+	height: 280,
+	borderRadius: 140
+	} 
+
+
