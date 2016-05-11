@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Alloy>
+	<!-- Main Container of the View, title of the Window is pulled from the title property on the main view-->
+	<Window id="wrapper" class="container vgroup" title="Informatie">
+		<ActionBar platform="android" displayHomeAsUp="true" onHomeIconItemSelected="closeWindow"/>
+		<ScrollView id="contactInfo" class="vgroup top">
+			<View class="left-buffer top size template">
+				<ImageView id="photo" class="avatar"/>
+				<View platform="android" class="smoothAvatarBorderRadius"/>
+				<View class="vgroup left size">
+					<Label id="titel" class="title"/>
+				</View>
+				<View class=" gray-line bottom"/>
+			</View>
+			<View class="buffer vgroup size">
+				<View class="hgroup size left-buffer right-buffer">
+					<Label id="info" class="h5 gray">Info</Label>
+				</View>
+			</View>
+			<View class="top-buffer gray-line bottom"/>
+	
+				<Label id="callBtn" class="icon icon-long-btn icon-phone" onClick="callContact"> \uf041 Bel</Label>
+				<Label class="lblMiddle gray">Of</Label>
+				<Label id="emailBtn" class="icon icon-long-btn icon-email" onClick="emailContact">Mail</Label>
+
+	
+			<Button id="addFavoriteBtn" class="h4 span-width top-buffer" onClick="toggleFavorite" textid="bookmarkBtn">+ Voeg toe aan favorieten</Button>
+		</ScrollView>
+	</Window>
+</Alloy>      

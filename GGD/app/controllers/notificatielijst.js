@@ -42,7 +42,139 @@ var _args = arguments[0] || {}, // Any passed in arguments will fall into this p
  */
 var title = _args.title ? _args.title.toLowerCase() : "infolijst";
 Ti.Analytics.featureEvent(Ti.Platform.osname+"."+title+".viewed");
-  
+
+
+
+/**
+ * Pull To refresh
+ */
+
+var refreshCount = 0;
+
+function getFormattedDate(){
+    var date = new Date();
+    return date.getMonth() + '/' + date.getDate() + '/' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes();
+}
+
+function resetPullHeader(){
+    actInd.hide();
+    imageArrow.transform=Ti.UI.create2DMatrix();
+    if (refreshCount < 2) {
+        imageArrow.show();
+        labelStatus.text = 'Pull down to refresh...';
+        labelLastUpdated.text = 'Last Updated: ' + getFormattedDate();
+    } else {
+        labelStatus.text = 'Nothing To Refresh';
+        labelLastUpdated.text = 'Last Updated: ' + getFormattedDate();
+         $.listView.removeEventListener('pull', pullListener);
+         $.listView.removeEventListener('pullend', pullendListener);
+        eventStatus.text = 'Removed event listeners.';
+    }
+    $.listView.setContentInsets({top:0}, {animated:true});
+}
+
+function loadTableData()
+{
+    refreshCount ++;
+    resetPullHeader();
+    init();
+}
+
+function pullListener(e){
+    eventStatus.text = 'EVENT pull FIRED. e.active = '+e.active;
+    if (e.active == false) {
+        var unrotate = Ti.UI.create2DMatrix();
+        imageArrow.animate({transform:unrotate, duration:180});
+        labelStatus.text = 'Pull down to refresh...';
+    } else {
+        var rotate = Ti.UI.create2DMatrix().rotate(180);
+        imageArrow.animate({transform:rotate, duration:180});
+        if (refreshCount == 0) {
+            labelStatus.text = 'Release to get Calamiteiten...';
+          
+        } else {
+            labelStatus.text = 'Release to get calamiteiten...';
+          
+        } 
+    }
+}
+
+function pullendListener(e){
+    eventStatus.text = 'EVENT pullend FIRED.';
+
+    if (refreshCount == 0) {
+        labelStatus.text = 'Release to get Calamiteiten..'; 
+    
+    } else {
+        labelStatus.text = 'Release to get Calamiteiten..';
+       
+    }
+    imageArrow.hide();
+    actInd.show();
+     $.listView.setContentInsets({top:80}, {animated:true});
+    setTimeout(function(){
+        loadTableData();
+    }, 2000);
+}
+
+var tableHeader = Ti.UI.createView({
+    backgroundColor:'#e2e7ed',
+    width:320, height:80
+});
+
+var border = Ti.UI.createView({
+    backgroundColor:'#576c89',
+    bottom:0,
+    height:2
+});
+tableHeader.add(border);
+
+var imageArrow = Ti.UI.createImageView({
+    image:'https://github.com/appcelerator/titanium_mobile/raw/master/demos/KitchenSink/Resources/images/whiteArrow.png',
+    left:20, bottom:10,
+    width:23, height:60
+});
+tableHeader.add(imageArrow);
+
+var labelStatus = Ti.UI.createLabel({
+    color:'#576c89',
+    font:{fontSize:13, fontWeight:'bold'},
+    text:'Pull down to refresh...',
+    textAlign:'center',
+    left:55, bottom:30,
+    width:200
+});
+tableHeader.add(labelStatus);
+
+var labelLastUpdated = Ti.UI.createLabel({
+    color:'#576c89',
+    font:{fontSize:12},
+    text:'Last Updated: ' + getFormattedDate(),
+    textAlign:'center',
+    left:55, bottom:15,
+    width:200
+});
+tableHeader.add(labelLastUpdated);
+
+var actInd = Ti.UI.createActivityIndicator({
+    left:20, bottom:13,
+    width:30, height:30
+});
+tableHeader.add(actInd);
+ $.listView.pullView = tableHeader;
+ $.listView.addEventListener('pull', pullListener);
+ $.listView.addEventListener('pullend',pullendListener);
+
+var eventStatus = Ti.UI.createLabel({
+    font:{fontSize:13, fontWeight:'bold'},
+    text: 'Event data will show here',
+    bottom:0,
+    height:'10%'
+});
+
+
+ 
+
 /** 
  * Function to inialize the View, gathers data from the flat file and sets up the ListView
  */
@@ -50,8 +182,7 @@ Ti.Analytics.featureEvent(Ti.Platform.osname+"."+title+".viewed");
 
 
 function init(){
-	
-	
+
 //Array to store the data from the todo list
 	var dataArray = [];
 	
@@ -89,8 +220,7 @@ function init(){
 			//dataArray = [];
 				
 				builtListview(json);
-				 
-		 
+
 		 }; 
 	};
 	 
@@ -404,16 +534,25 @@ if(OS_ANDROID){
 $.wrapper.addEventListener('open',function(e){
 	
 	Ti.App.addEventListener("onSearchChange",onSearchChange);
+	Ti.App.addEventListener("androidRefresh",androidRefresh);
 	
 });
 
 $.wrapper.addEventListener('close',function(e){
 	
 	Ti.App.removeEventListener("onSearchChange",onSearchChange);
+	Ti.App.removeEventListener("androidRefresh",androidRefresh);
 	
 });
 
 }
+
+androidRefresh = function onRefresh(e){
+	init();
+};
+
+
+
 
 onSearchChange = function onChange(e){
 	$.listView.searchText = e.source.value;

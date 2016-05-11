@@ -1,0 +1,39 @@
+<Alloy>
+	<!-- Main Container of the View, title of the Window is pulled from the title property on the main view-->
+	
+		<Window  class="container vgroup" title="Details" tabBarHidden="true">
+			
+			
+			<ActionBar platform="android" displayHomeAsUp="true" onHomeIconItemSelected="closeWindow" />
+			
+
+			<ScrollView id="contactInfo" class='vgroup top'>
+				
+				<!-- 
+					Map View 
+					Leverages the Map Module, allowing for v2 of Google Maps and latest codebase unifying Google v2 and IOS
+				-->
+				<Module id="mapview" module="ti.map" method="createView" platform="android,ios" class='no-touch top' />
+				<View ns="Ti.Map" id="mapview" platform="mobileweb" class='buffer  no-touch top' />
+			
+			
+				<!-- User Information -->
+				<View class="vgroup top size">
+					<Label id="name" class='title top-buffer left-buffer no-touch' >Titel</Label>
+					<View class="hgroup size left-buffer ">
+								<Label class="icon-location icon icon-small right "/>
+								<Label id="locatieLabel"  class="h5 gray left-5">Locatie</Label>
+							</View>
+					<Label id="infoLabel" class='h3 left-buffer top-buffer gray no-touch' >Informatie</Label>
+			        <Label id="informatie" class='h5 left-buffer right-buffer top-buffer gray no-touch' >Text</Label>
+			        <Label id="infoLabel" class='h3 left-buffer top-buffer gray no-touch' >Wat kunt u doen</Label>
+			        <Label id="wattedoen" class='h5 left-buffer right-buffer top-buffer gray no-touch' >Text</Label> 
+				</View>
+				
+				<Label id="callBtn" class="icon icon-long-btn icon-phone"  onClick="callContact" >Meer informatie over blauwalg</Label>
+		<Button id="addFavoriteBtn" class="h4 span-width top-buffer" onClick="toggleFavorite" textid="bookmarkBtn">+ Sla op bij favorieten</Button>  
+			
+			 
+			</ScrollView>	
+		</Window>
+</Alloy>

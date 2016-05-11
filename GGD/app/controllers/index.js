@@ -105,7 +105,7 @@ function doopen(evt){
                  });
 				
 			
-				item2 = menu.add({
+				item1 = menu.add({
                        title: 'Table Search',
                        actionView : search,
                        icon: (Ti.Android.R.drawable.ic_menu_search ? Ti.Android.R.drawable.ic_menu_search : "my_search.png"),
@@ -115,21 +115,30 @@ function doopen(evt){
 				
 				search.addEventListener("change", function(e) {			
 							
-						
 						Ti.App.fireEvent("onSearchChange", e);
 							
-	
 				}); 
 			
 				
-				item1 = e.menu.add({
+				item2 = e.menu.add({
 					title : "Favorite",
 					showAsAction : Ti.Android.SHOW_AS_ACTION_ALWAYS,
 					icon : 'favorite.png'
 				});
-				item1.addEventListener("click", function(e) {					
+				item2.addEventListener("click", function(e) {					
 					Alloy.Globals.Navigator.open("notificatielijst", {restrictToFavorites:true, title:"Favorites", displayHomeAsUp:true});
 				});
+				
+				item3 = e.menu.add({
+					title : "Refresh",
+					showAsAction : Ti.Android.SHOW_AS_ACTION_ALWAYS,
+					icon : 'refresh.png'
+				});
+				item3.addEventListener("click", function(e) {					
+						Ti.App.fireEvent("androidRefresh", e);
+				});
+				
+				
 				
 				
 				

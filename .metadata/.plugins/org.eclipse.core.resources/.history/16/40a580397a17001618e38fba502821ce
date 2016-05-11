@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<Alloy>
+	<Collection src="myCollection" />
+	 
+	<!--
+		This view wraps all of the child views/lists etc. Creates a base layout, vertically aligned.
+	-->
+	<Window id="wrapper" class="vgroup" title="Calamiteiten" >
+		<!-- 
+		Menu Item to open the bookmarks view
+		-->
+		<Menu id="menu" platform="android">
+			<!-- 
+				Adding the SearchView to the ActionBar via the Menu feature. Leveraging the standard Android Resource for the search
+				icon. Uses shared onChange function with iOS to update listView search text.
+			-->
+			<MenuItem showAsAction="Ti.Android.SHOW_AS_ACTION_IF_ROOM" title="Search" icon="Ti.Android.R.drawable.ic_menu_search">
+				<ActionView>
+					<SearchView ns="Ti.UI.Android" id="searchBar" platform="android" onChange="onSearchChange"/>
+				</ActionView>
+			</MenuItem> 
+			<!-- Android Menu item for accessing the Bookmarks view-->
+			<MenuItem id="bookmarkBtn" title="Bookmarks" icon="/images/ic_action_action_bookmark.png" onClick="onBookmarkClick" showAsAction="Ti.Android.SHOW_AS_ACTION_IF_ROOM"/>
+		</Menu>
+		<!--
+		If you would like the searchbar to scroll up with the listView, you can move this line before the last
+		</ListView> tag. However for our implementation, we want the searchBar to be present at all times so we have moved
+		it outside of the ListView tags.
+		-->
+		<SearchBar id="searchBar" platform="ios" class="search gray" onBookmark="onBookmarkClick" onFocus="onSearchFocus" onCancel="onSearchCancel" onChange="onSearchChange"/>
+		<!--
+			The Directory list. 
+			This listView leverages two ListItem templates to denote regular contacts and those that are bookmarked.
+		-->
+		
+		  <Widget id="ptr" src="nl.fokkezb.pullToRefresh" onRelease="myRefresher">
+		<ListView id="listView" defaultItemTemplate="calmiteitTemplate" onItemclick="onItemClick" separatorColor="transparent">
+			 <ListSection dataCollection="myCollection">
+			<Templates>
+				<!-- calamiteitTemplate - this is the default ListItem template -->
+				<ItemTemplate id="calamiteitTemplate" name="calamiteitTemplate" class="template">
+					<View class="gray-line top"/>
+					<View class="left-buffer tempTop">
+						<View class="hgroup size dateTop right-buffer">
+						<View class="vgroup  size  ">
+							    <Label id="calamiteitDatum" bindId="calamiteitDatum" class="h3 gray right-buffer">Datum</Label>
+							    <Label id="calamiteitDag" bindId="calamiteitDag" class="h5 gray right-buffer ">Dag </Label>
+								<Label id="calamiteitStatus" bindId="calamiteitStatus" class="h6 gray right-buffer">Status</Label>
+							</View> 
+							<View class="vgroup size  ">
+							    <Label id="" bindId="calamiteitDagGetal" class="h1 gray right-buffer">18</Label>
+							</View> 
+						</View> 
+						
+
+						<View class="vgroup">
+						<ImageView id="calamiteitPhoto" bindId="calamiteitPhoto" class="avatar"/>
+					
+							<Label id="calamiteitName" bindId="calamiteitName" class="title"/>
+							<Label id="calamiteitOmschrijving" bindId="calamiteitOmschrijving" class="omschrijving"/>
+							<View class="dot-line bottom" />
+							<View class="hgroup size left-buffer ">
+								<Label id="calamiteitCategorie" bindId="calamiteitCategorie" class="calCat"/>
+							</View>
+							<View class="hgroup groupRight size right-buffer ">
+								<Label class="icon-location icon icon-small right "/>
+								<Label id="calamiteitLocatie" bindId="calamiteitLocatie" class="h6 gray left-buffer">Locatie</Label>
+							</View>
+						</View>
+					</View>
+				</ItemTemplate>
+				<!-- vragenlijstTemplate - this is the ListItem template for calamiteiten that have been bookmarked -->
+				<ItemTemplate id="vragenlijstTemplate" name="vragenlijstTemplate" class="vraagTemplate">
+					<View class="gray-line top"/>
+					<View class="tempTop">
+					
+						<View class="vgroup">
+							<Label id="calamiteitName" bindId="calamiteitVraag" class="centerText h4 gray"/>
+						</View> 
+						<View id="innerView" class=""> 
+							<Button id="neeBtn" class="h4">Nee</Button>
+							<Button id="jaBtn" onClick="onJaClick" class="h4">Ja</Button>  
+							 
+						</View>  
+					</View>
+				</ItemTemplate> 
+				
+					<!-- favoriteTemplate - this is the ListItem template for calamiteiten that have been bookmarked -->
+				<ItemTemplate id="favoriteTemplate" name="favoriteTemplate" class="template">
+					<View class="gray-line top"/>
+					<View class="left-buffer tempTop">
+						
+					
+						<View class="hgroup size dateTop right-buffer">
+						<View class="vgroup  size  ">
+							    <Label id="calamiteitDatum" bindId="calamiteitDatum" class="h3 gray right-buffer">Datum</Label>
+							    <Label id="calamiteitDag" bindId="calamiteitDag" class="h5 gray right-buffer ">Dag </Label>
+								<Label id="calamiteitStatus" bindId="calamiteitStatus" class="h6 gray right-buffer">Status</Label>
+							</View> 
+							<View class="vgroup size  ">
+							    <Label id="" bindId="calamiteitDagGetal" class="h1 gray right-buffer">18</Label>
+							</View> 
+						</View> 
+						   
+						<View class="vgroup">
+							<ImageView id="calamiteitPhoto" bindId="calamiteitPhoto" class="avatar"/>
+							<Label id="calamiteitName" bindId="calamiteitName" class="title"/>
+							<Label id="calamiteitOmschrijving" bindId="calamiteitOmschrijving" class="omschrijving"/>
+							<View class="dot-line bottom" />
+							<View class="hgroup size left-buffer "> 
+								<Label id="calamiteitCategorie" bindId="calamiteitCategorie" class="calCat"/>
+							</View>
+							<View class="hgroup groupRight size right-buffer ">
+								<Label class="icon-location icon icon-small right "/>
+								<Label id="calamiteitLocatie" bindId="calamiteitLocatie" class="h6 gray left-buffer">Locatie</Label>
+							</View>
+						</View>
+						<Label class="favorite"/>
+					</View>
+				</ItemTemplate>
+			</Templates>
+			  </ListSection>
+		</ListView>
+	 </Widget>
+	</Window>
+</Alloy>

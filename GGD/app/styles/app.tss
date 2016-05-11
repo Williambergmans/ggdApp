@@ -675,12 +675,10 @@ activeTabBackgroundColor: "#FFF",
 	color: "#fff",
 	borderRadius: 2,
 	backgroundColor: "#e28833",
-	textAlign: "center",
 	font:{
 		fontSize: 18
 	},
 	left: 10,
-	right: 10,
 	top: 100
 	 
 },
@@ -735,6 +733,8 @@ activeTabBackgroundColor: "#FFF",
 	right: 10,
 	bottom: 10
 },
+
+
 
 ".icon-long-btn":{
 	height: 50,

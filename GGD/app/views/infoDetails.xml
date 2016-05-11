@@ -19,12 +19,12 @@
 			</View>
 			<View class="top-buffer gray-line bottom"/>
 	
-				<Label id="callBtn" class="icon icon-long-btn icon-phone" onClick="callContact">Bel</Label>
+				<Label id="callBtn" class="icon icon-long-btn icon-phone" onClick="callContact">\uf095 Bel</Label>
 				<Label class="lblMiddle gray">Of</Label>
-				<Label id="emailBtn" class="icon icon-long-btn icon-email" onClick="emailContact">Mail</Label>
+				<Label id="emailBtn" class="icon icon-long-btn icon-email" onClick="emailContact">\uf0e0 Mail</Label>
 
 	
 			<Button id="addFavoriteBtn" class="h4 span-width top-buffer" onClick="toggleFavorite" textid="bookmarkBtn">+ Voeg toe aan favorieten</Button>
 		</ScrollView>
 	</Window>
-</Alloy>   
+</Alloy>     

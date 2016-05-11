@@ -18,12 +18,13 @@
 				</View>
 			</View>
 
-				<Label id="callBtn" class="icon icon-long-btn icon-phone" onClick="callContact">Bel</Label><!--onClick="callContact" -->
+				<Label id="callBtn" class="icon icon-long-btn icon-phone" onClick="callContact">\uf095 Bel</Label><!--onClick="callContact" -->
 				<Label  class="lblMiddle gray">Of</Label>
-			    <Label id="emailBtn" class="icon icon-long-btn icon-email" onClick="emailContact">Mail</Label> <!-- onClick="emailContact" -->	  
+			    <Label id="emailBtn" class="icon icon-long-btn icon-email" onClick="emailContact">\uf0e0 Mail</Label> <!-- onClick="emailContact" -->	  
 
-				<View class="top-buffer gray-line bottom"/> 
+				<View class="top-buffer gray-line bottom"/>  
 				
 		</ScrollView>
 	</Window>
 </Alloy> 
+  
