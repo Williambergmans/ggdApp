@@ -1,0 +1,16 @@
+ ".rapportBtn":{
+	height: 50,
+    width: Ti.UI.FILL,
+	color: "#fff",
+	borderRadius: 2,
+	backgroundColor: "#e28833",
+	textAlign: "center",
+	font:{
+		fontSize: 18
+	},
+	left: 10,
+	right: 10,
+	
+
+},
+ 

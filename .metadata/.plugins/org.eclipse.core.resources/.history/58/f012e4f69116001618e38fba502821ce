@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<Alloy>
+	<Window id="settings" title="Instellingen" tabBarHidden="true" onClose="validateAndSave">
+		<TableView id="table" separatorColor="transparent">
+			<!--
+			<TableViewSection> 
+				<HeaderView>
+					<View class="view-headerview-form">
+						<Label class="label-tableviewsection-header left-buffer" text="Account"/>
+					</View>
+				</HeaderView>
+				<TableViewRow class="tableviewrow-form-row" id="account" hasChild="true">  
+					<View>
+						<Label class="label-row-title" title="Account" value="Account" id="acccountLbl">Account</Label>
+						<Label class="label-row-subtitle" text="" id="accountValue"/>
+					</View>	
+				</TableViewRow>
+			</TableViewSection>
+			-->
+			<TableViewSection>
+				<HeaderView>
+					<View class="view-headerview-form">
+						<Label class="label-tableviewsection-header left-buffer" text="Straal huidige locatie"/>
+					</View>
+				</HeaderView>
+				<TableViewRow class="tableviewrow-form-row" id="straal" hasChild="false">
+					<View>
+						<Label class="label-row-title" title="Account" value="Account" id="userLocStraalLbl">Huidige locatie</Label>
+						<View class="hgroup groupRight size right-buffer ">
+							<Label class="label-row-subtitle left-buffer" text="" id="userLocStraalValue"/>
+							<Label class="label-row-arrow  right"/>
+						</View>
+					</View>
+				</TableViewRow>
+			</TableViewSection>
+			<!--
+			<TableViewSection>
+				<HeaderView>
+					<View class="view-headerview-form">
+						<Label class="label-tableviewsection-header left-buffer" text="Mijn gebieden"/>
+					</View>
+				</HeaderView>
+				<TableViewRow class="tableviewrow-form-row" id="addLocation">
+					<View>
+						<Label class="" title="Account" value="Account" id="userAddLocLbl" text="+"></Label>
+					</View>
+				</TableViewRow>
+			</TableViewSection>
+			-->
+			<TableViewSection>
+				<HeaderView>
+					<View class="view-headerview-form">
+						<Label class="label-tableviewsection-header left-buffer" text="Notificaties"/>
+					</View>
+				</HeaderView>
+				<TableViewRow class="tableviewrow-form-row" id="title">
+					<View>
+						<Label class="label-row-title" title="Account" value="Account" id="notiLbl">Notificaties ontvangen</Label>
+						<Switch class="label-row-subtitle" id="notificationSwitch" value="true" onChange="outputState"/>
+					</View>
+				</TableViewRow>
+			</TableViewSection>
+		</TableView>
+	</Window>
+</Alloy>

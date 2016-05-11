@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<Alloy>
+	<!-- Main Container of the View, title of the Window is pulled from the title property on the main view-->
+	<Window id="wrapper" class="container vgroup" title="Informatie" tabBarHidden="true">
+		<ActionBar platfor="android" displayHomeAsUp="true" onHomeIconItemSelected="closeWindow"/>
+		<ScrollView id="contactInfo" class="vgroup top">
+			<View class="top size template">
+				<ImageView id="photo" class="avatar"/>
+				<View platform="android" class="smoothAvatarBorderRadius"/>
+				<View class="vgroup left size">
+					<Label id="titel" class="title"/>
+				</View>
+			</View>
+			<TableView id="table" separatorColor="transparent">
+				<TableViewSection>
+					<TableViewRow class="tableviewrow-form-row" id="vraag1">
+						<View>
+							<Label class="label-row-title" title="vraah1" id="vraag2Titel">vraag2</Label>
+							<View id="innerView">
+								<Button id="true1" class="trueBtn"/>
+								<Button id="false1" class="falseBtn"/>
+							</View>
+						</View>
+						<View class="view-row-separator"/>
+					</TableViewRow>
+					<TableViewRow class="tableviewrow-form-row" id="date">
+						<View>
+							<Label class="label-row-title" title="Datum" id="vraag2Titel">vraag2</Label>
+							<View id="innerView">
+								<Button id="true2" class="trueBtn"/>
+								<Button id="false2" class="falseBtn"/>
+							</View>
+						</View>
+						<View class="view-row-separator"/>
+					</TableViewRow>
+					<TableViewRow class="tableviewrow-form-row" id="category">
+						<View>
+							<Label class="label-row-title" title="Categorie" id="vraag3Titel">Vraag3</Label>
+							<View id="innerView">
+								<Button id="true3" class="trueBtn"/>
+								<Button id="false3" class="falseBtn"/>
+							</View>
+						</View>
+						<View class="view-row-separator"/>
+					</TableViewRow>
+					<TableViewRow class="tableviewrow-form-row" id="context">
+						<View>
+							<Label class="label-row-title" title="Datum" id="vraag4Titel">vraag4</Label>
+							<View id="innerView">
+								<Button id="true4" class="trueBtn"/>
+								<Button id="false4" class="falseBtn"/>
+							</View>
+						</View>
+						<View class="view-row-separator"/>
+					</TableViewRow>
+					<TableViewRow class="tableviewrow-form-row" id="location">
+						<View>
+							<Label class="label-row-title" title="Locatie" id="vraag5Titel">vraag5</Label>
+							<View id="innerView">
+								<Button id="true5" class="trueBtn"/>
+								<Button id="false5" class="falseBtn"/>
+							</View>
+						</View>
+					</TableViewRow>
+					<TableViewRow class="tableviewrow-form-row" id="location">
+						<Label id="rapportBtn" onClick="validateAndSave" class="icon-long-btn">Verstuur vragenlijst</Label>
+					</TableViewRow>
+				</TableViewSection>
+			</TableView>
+		</ScrollView>
+	</Window>
+</Alloy>

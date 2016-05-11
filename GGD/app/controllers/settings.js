@@ -52,17 +52,37 @@ $.straal.addEventListener('click', function(e) {
     backgroundColor : '#fff'
     
     });
+    
+    if (OS_ANDROID) {
+    myModal.addEventListener('open',function(evt){
+    var actionBar=evt.source.activity.actionBar;
+    if (actionBar){
+       actionBar.hide();
+    }
+}); 
+}
+  
      
 var wrapperView    = Ti.UI.createView(); // Full screen
 var backgroundView = Ti.UI.createView({  // Also full screen
     backgroundColor : '#fff',
     opacity         : 1
 });
+
+
+if (OS_IOS) {
 var containerView  = Ti.UI.createView({  // Set height appropriately
     backgroundColor : '#FFF',    
     top: 20
 });
+}
 
+if (OS_ANDROID) {
+var containerView  = Ti.UI.createView({  // Set height appropriately
+    backgroundColor : '#FFF',    
+    top: 0
+});
+}
 
 
 var titleLabel = Ti.UI.createLabel({
@@ -121,7 +141,7 @@ containerView.add(mapview);
 } 
 getMap();
 
-
+if (OS_IOS) {
 var km1    = Ti.UI.createButton({
 	font:{
 		fontSize: 16, 	
@@ -132,11 +152,23 @@ var km1    = Ti.UI.createButton({
     bottom : 10,
     color: '#000',
     left: 10,
-    backgroundColor: 'none' 
-   
-    
+    backgroundColor: 'none'    
 });
-
+}
+if (OS_ANDROID) {
+var km1    = Ti.UI.createButton({
+	font:{
+		fontSize: 16, 	
+	},
+    title  : '+1km',
+    width: '25%',
+    borderRadius: 4,
+    bottom : 0,
+    color: '#000',
+    left: 10,
+    backgroundColor: 'none'    
+});
+}
 
 
 
@@ -158,7 +190,7 @@ km1.addEventListener('click', function () {
 
 
 
-
+if (OS_IOS) {
 var km5    = Ti.UI.createButton({
 	font:{
 		fontSize: 16, 	
@@ -172,6 +204,24 @@ var km5    = Ti.UI.createButton({
     backgroundColor: 'none'
       
 });
+}
+if (OS_ANDROID) {
+var km5    = Ti.UI.createButton({
+	font:{
+		fontSize: 16, 	
+	},
+    title  : '+5km',
+    left :'25%',
+     width:'25%',
+    borderRadius: 4,
+    bottom : 0,
+    color: '#000',
+    backgroundColor: 'none'
+      
+});
+}
+
+
 
 km5.addEventListener('click', function () {
     kilometer = 5000;
@@ -184,7 +234,7 @@ km5.addEventListener('click', function () {
     km25.backgroundColor = 'none';
     
 });
-
+if (OS_IOS) {
 var km15    = Ti.UI.createButton({
 	font:{
 		fontSize: 16, 	
@@ -197,7 +247,21 @@ var km15    = Ti.UI.createButton({
     color: '#000',
     backgroundColor: 'none'   
 });
-
+}
+if (OS_ANDROID) {
+var km15    = Ti.UI.createButton({
+	font:{
+		fontSize: 16, 	
+	},
+    title  : '+15km',
+        width:'25%',
+    borderRadius: 4,
+    bottom : 0,
+    right : '25%',
+    color: '#000',
+    backgroundColor: 'none'   
+});
+}
 km15.addEventListener('click', function () {
     kilometer = 15000;
      latDelta = 0.4;
@@ -209,6 +273,8 @@ km15.addEventListener('click', function () {
     km25.backgroundColor = 'none';
 });
 
+
+if (OS_IOS) {
 var km25    = Ti.UI.createButton({
 	font:{
 		fontSize: 16, 	
@@ -221,7 +287,21 @@ var km25    = Ti.UI.createButton({
     color: '#000',
     backgroundColor: 'none'   
 });
-
+}
+if (OS_ANDROID) {
+var km25    = Ti.UI.createButton({
+	font:{
+		fontSize: 16, 	
+	},
+    title  : '+25km',
+     width:'25%',
+    borderRadius: 4,
+    bottom : 0,
+    right:10,
+    color: '#000',
+    backgroundColor: 'none'   
+});
+}
 
 km25.addEventListener('click', function () {
     kilometer = 25000;

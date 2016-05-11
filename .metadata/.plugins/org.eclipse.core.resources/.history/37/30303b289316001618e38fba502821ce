@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<Alloy>
+	<Window id="report" title="Rapporteer" tabBarHidden="true">
+		<TableView id="table" separatorColor="transparent">
+			<TableViewSection>
+				<HeaderView>
+					<View class="view-headerview-form">
+						<Label class="label-tableviewsection-header left-buffer" text="Calamiteit details"/>
+					</View>
+				</HeaderView>
+				<TableViewRow class="tableviewrow-form-row" id="title" hasChild="false">
+					<View>
+						<Label class="label-row-title" title="Titel" value="Title" id="titleLbl">Titel</Label>
+						<View class="hgroup groupRight size right-buffer ">
+							<Label class="label-row-subtitle left-buffer" text="" id="titleValue"/>
+							<Label class="label-row-arrow  right"/>
+						</View>
+					</View>
+					<View class="view-row-separator"/>
+				</TableViewRow>
+				<TableViewRow class="tableviewrow-form-row" id="date" hasChild="false">
+					<View>
+						<Label class="label-row-title" title="Datum" id="dateLbl">Datum</Label>
+						<View class="hgroup groupRight size right-buffer ">
+							<Label class="label-row-subtitle left-buffer" text="" id="dateValue"/>
+							<Label class="label-row-arrow right "/>
+						</View>
+					</View>
+					<View class="view-row-separator"/>
+				</TableViewRow>
+				<TableViewRow class="tableviewrow-form-row" id="category" hasChild="false">
+					<View>
+						<Label class="label-row-title" title="Categorie" id="catLbl">Categorie</Label>
+						<Label class="label-row-subtitle" text="" id="catValue"/>
+						<View class="hgroup groupRight size right-buffer ">
+							<Label class="label-row-subtitle left-buffer" text="" id="catValue"/>
+							<Label class="label-row-arrow right "/>
+						</View>
+					</View>
+					<View class="view-row-separator"/>
+				</TableViewRow>
+				<TableViewRow class="tableviewrow-form-row" id="context" hasChild="false">
+					<View>
+						<Label class="label-row-title" title="Datum" id="contextLbl">Inhoud</Label>
+						<View class="hgroup groupRight size right-buffer ">
+							<Label class="label-row-subtitle left-buffer" text="" id="contextValue"/>
+							<Label class="label-row-arrow  right"/>
+						</View>
+					</View>
+					<View class="view-row-separator"/>
+				</TableViewRow>
+				<TableViewRow class="tableviewrow-form-row" id="location" hasChild="false">
+					<View>
+						<Label class="label-row-title" title="Locatie" id="locLbl">Locatie</Label>
+						<View class="hgroup groupRight size right-buffer ">
+							<Label class="label-row-subtitle left-buffer" text="" id="locValue"/>
+							<Label class="label-row-arrow right"/>
+						</View>
+					</View>	
+				</TableViewRow>
+					<Label id="rapportBtn" class="icon icon-long-btn" onClick="insertData">Rapporteer</Label>
+			</TableViewSection>
+			<!--
+			<TableViewSection>
+				<HeaderView>
+					<View class="view-headerview-form">
+						<Label class="label-tableviewsection-header left-buffer" text="Optioneel"/>
+					</View>
+				</HeaderView>
+				<TableViewRow class="tableviewrow-form-row" id="pic" hasChild="false">
+					<View>
+						<Label class="label-row-title" title="Datum" id="picLbl">Verstuur foto</Label>
+						<View class="hgroup groupRight size right-buffer ">
+							<Label class="label-row-subtitle  left-buffer" text="" id="picValue"/>
+							<Label class="label-row-arrow right"/>
+						</View>
+					</View>
+				</TableViewRow>
+			</TableViewSection>
+			-->  
+		</TableView>
+	
+	</Window>
+</Alloy>

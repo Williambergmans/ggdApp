@@ -6,7 +6,8 @@ var _args = arguments[0] || {}, // Any passed in arguments will fall into this p
 	rapTitle = null, // 
 	rapDate = null, //
 	rapInhoud = null, //
-	rapLatitude = null;//
+	rapLatitude = null,
+	rapLongitude = null;//
 
 
 var rapTitle = _args.rapTitle ;
@@ -22,29 +23,54 @@ var rapLatitude = _args.rapLatitude;
 
 
 function createTitleView() {
+	
+	
 	 
-	var myModal = Ti.UI.createWindow({
+var myModal = Ti.UI.createWindow({
     title           : 'My Modal',
-    backgroundColor : 'transparent'
+    backgroundColor : 'transparent',
+}); 
     
-    });
-      
+    
+if (OS_ANDROID) {
+    myModal.addEventListener('open',function(evt){
+    var actionBar=evt.source.activity.actionBar;
+    if (actionBar){
+       actionBar.hide();
+    }
+}); 
+}
+  
     
 var wrapperView    = Ti.UI.createView({
 	
 }); // Full screen
-
+ 
 var backgroundView = Ti.UI.createView({  // Also full screen
     backgroundColor : '#000',
-    opacity         : 0.5
+    opacity: 0.5,
+
 });
+
+if (OS_IOS) {
+
 var containerView  = Ti.UI.createView({  // Set height appropriately
     backgroundColor : '#FFF',
     height: 200, 
     top: 65
 });
+}
+if (OS_ANDROID) {
+
+var containerView  = Ti.UI.createView({  // Set height appropriately
+    backgroundColor : '#FFF',
+    height: 200, 
+    top: 50
+});
+}  
 
 
+ 
 var titleLabel = Ti.UI.createLabel({
   color: '#000',
   font: { fontSize:18 },
@@ -162,8 +188,16 @@ containerView.add(separatorBottom);
 containerView.add(fieldTitle);
 myModal.add(wrapperView);
 myModal.open({
-        modal: true 
+        //modal: true 
+        
+   
+       
 });
+
+
+
+
+
 }
 
 
@@ -184,18 +218,41 @@ function createDateView() {
     
     });
     
+ if (OS_ANDROID) {
+    myModal.addEventListener('open',function(evt){
+    var actionBar=evt.source.activity.actionBar;
+    if (actionBar){
+       actionBar.hide();
+    }
+}); 
+}
+     
+    
 var wrapperView    = Ti.UI.createView(); // Full screen
 
 var backgroundView = Ti.UI.createView({  // Also full screen
     backgroundColor : '#000',
     opacity         : 0.5
 });
+
+
+
+ if (OS_IOS) {
 var containerView  = Ti.UI.createView({  // Set height appropriately
- 
     backgroundColor : '#FFF',
     height: 400,
     top: 65
 });
+}
+
+ if (OS_ANDROID) {
+var containerView  = Ti.UI.createView({  // Set height appropriately
+    backgroundColor : '#FFF',
+    height: 400,
+    top: 50
+});
+}
+
 
 var separatorTop = Ti.UI.createView ({
 	top:40,
@@ -324,11 +381,21 @@ $.date.addEventListener('click', function(e) {
 		
 
 	
-	var myModal = Ti.UI.createWindow({
-    title           : 'My Modal',
-    backgroundColor : 'transparent'
-    
+var myModal = Ti.UI.createWindow({
+	title           : 'My Modal',
+    backgroundColor : 'transparent' 
     });
+    
+    
+ if (OS_ANDROID) {
+    myModal.addEventListener('open',function(evt){
+    var actionBar=evt.source.activity.actionBar;
+    if (actionBar){
+       actionBar.hide();
+    }
+}); 
+}
+       
     
 var wrapperView    = Ti.UI.createView(); // Full screen
 
@@ -336,13 +403,22 @@ var backgroundView = Ti.UI.createView({  // Also full screen
     backgroundColor : '#000',
     opacity         : 0.5
 });
+
+
+ if (OS_IOS) {
 var containerView  = Ti.UI.createView({  // Set height appropriately
- 
     backgroundColor : '#FFF',
     height: 400,
     top: 65
 });
-
+}
+ if (OS_ANDROID) {
+var containerView  = Ti.UI.createView({  // Set height appropriately
+    backgroundColor : '#FFF',
+    height: 400,
+    top: 50
+});
+}
 
 var titleLabel = Ti.UI.createLabel({
   color: '#000',
@@ -514,6 +590,14 @@ $.category.addEventListener('click', function(e) {
     
     });
    
+    if (OS_ANDROID) {
+    myModal.addEventListener('open',function(evt){
+    var actionBar=evt.source.activity.actionBar;
+    if (actionBar){
+       actionBar.hide();
+    }
+}); 
+}
     
 var wrapperView    = Ti.UI.createView(); // Full screen
 
@@ -521,12 +605,25 @@ var backgroundView = Ti.UI.createView({  // Also full screen
     backgroundColor : '#000',
     opacity         : 0.5
 });
+
+  if (OS_IOS) {
 var containerView  = Ti.UI.createView({  // Set height appropriately
- 
     backgroundColor : '#FFF',
     height: 200,
     top: 65
 });
+}
+
+ if (OS_ANDROID) {
+var containerView  = Ti.UI.createView({  // Set height appropriately
+    backgroundColor : '#FFF',
+    height: 200,
+    top: 50
+});
+}
+
+
+
 
 var titleLabel = Ti.UI.createLabel({
   color: '#000',
@@ -663,19 +760,37 @@ createContext();
     
     });
     
+ if (OS_ANDROID) {
+    myModal.addEventListener('open',function(evt){
+    var actionBar=evt.source.activity.actionBar;
+    if (actionBar){
+       actionBar.hide();
+    }
+}); 
+}    
+    
 var wrapperView    = Ti.UI.createView(); // Full screen
 
 var backgroundView = Ti.UI.createView({  // Also full screen
     backgroundColor : '#000',
     opacity         : 0.5
 });
+
+if (OS_IOS) {
 var containerView  = Ti.UI.createView({  // Set height appropriately
- 
     backgroundColor : '#FFF',
     height: 200,
     top: 65
 });
+}
 
+if (OS_ANDROID) {
+var containerView  = Ti.UI.createView({  // Set height appropriately
+    backgroundColor : '#FFF',
+    height: 200,
+    top: 50
+});
+}
 
 var titleLabel = Ti.UI.createLabel({
   color: '#000',
@@ -813,43 +928,6 @@ $.location.addEventListener('click', function(e) {
 createLocationView();
 });	
 
-/*
-var FIELDS = [
-	$.titleValue, // title 
-	$.dateValue,  // date
-	$.catValue,   // category
-	$.contextValue, // context
-	$.locValue,  // longitude
-	$.locLbl, // latitude
-];  
-
-*/
-var rapdata = [
-	rapTitle,
-	//rapDate,
-	//rapCat,
-	//rapInhoud,
-	//rapLatitude,
-	//rapLongitude,
-
-	
-];  
-
-
-
-function validateAndSave(){
-	
-	alert(rapTitle.value);
-	alert(rapDate.value);
-    alert(rapCat.value);
-    alert(rapInhoud.value);
-    alert(rapLatitude);
-    alert(rapLongitude);
-
-	 
-}
-	 
-
 
 function insertData(){
 	
@@ -871,20 +949,17 @@ function insertData(){
 		    //timeout:1000,
 			});	
 			//Request the data from the web service, Here you have to change it for your local ip
-			request.open("GET","http://williambergmans.nl/ggd/public/postMelding");
+			request.open("POST","http://williambergmans.nl/ggd/public/postMelding");
 			var params = ({"id": "0" ,"titel": rapTitle.value,"datum": rapDate.value, "categorie": rapCat.value ,"inhoud":rapInhoud.value ,"longitude": rapLongitude ,"latitude": rapLatitude});  
 		    request.send(params); 
 		    
 		    alert(params);
 		     
 		    console.log(params);
- 		} 
+ 		}  
  		else{ 
  			alert("Please write something in the textbox");
- 		}  
- 		
- 	 
-	 
-};
+ 		}   
 
+};
 

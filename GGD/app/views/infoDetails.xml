@@ -2,7 +2,7 @@
 <Alloy>
 	<!-- Main Container of the View, title of the Window is pulled from the title property on the main view-->
 	<Window id="wrapper" class="container vgroup" title="Informatie">
-		<ActionBar platfor="android" displayHomeAsUp="true" onHomeIconItemSelected="closeWindow"/>
+		<ActionBar platform="android" displayHomeAsUp="true" onHomeIconItemSelected="closeWindow"/>
 		<ScrollView id="contactInfo" class="vgroup top">
 			<View class="left-buffer top size template">
 				<ImageView id="photo" class="avatar"/>
@@ -27,4 +27,4 @@
 			<Button id="addFavoriteBtn" class="h4 span-width top-buffer" onClick="toggleFavorite" textid="bookmarkBtn">+ Voeg toe aan favorieten</Button>
 		</ScrollView>
 	</Window>
-</Alloy>  
+</Alloy>   

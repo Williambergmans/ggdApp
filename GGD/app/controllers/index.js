@@ -12,9 +12,6 @@
  * 
  */
 
- 
- 
-
 var util = require('overrideTabs');
 
 
@@ -27,10 +24,6 @@ util.overrideTabs(
     { backgroundColor: '#e28833', color: '#fff', style: 0 } // View parameters for deselected tabs
 );
 };
-
- 
- 
-
 
 /**
  * Global Navigation Handler
@@ -67,22 +60,23 @@ Alloy.Globals.Navigator = {
 			if (payload.displayHomeAsUp){
 
 				win.addEventListener('open',function(evt){
-					var activity=win.activity;
+					var activity=win.activity;	
 					activity.actionBar.displayHomeAsUp=payload.displayHomeAsUp;
 					activity.actionBar.onHomeIconItemSelected=function(){
 						evt.source.close();
 					};
+					
 				});
 			}
 			win.open();
-		}
+		}   
 	} 
 };
 
 
 
 
-/*
+
 if (OS_ANDROID) {
 	
 
@@ -104,17 +98,8 @@ function doopen(evt){
 				 
 				break;
 			case 1:
-				
-				item1 = e.menu.add({
-					title : "Share",
-					showAsAction : Ti.Android.SHOW_AS_ACTION_ALWAYS,
-					icon : Ti.Android.R.drawable.ic_menu_send
-				});
-				item1.addEventListener("click", function(e) {					
-					Alloy.Globals.Navigator.open("notificatielijst", {restrictToFavorites:true, title:"Favorites", displayHomeAsUp:true});
-				});
-				
-				// Use action bar search view
+			
+			// Use action bar search view
                 var search = Ti.UI.Android.createSearchView({
                  hintText: "Zoek"
                  });
@@ -129,10 +114,24 @@ function doopen(evt){
 				
 				
 				search.addEventListener("change", function(e) {			
-							//onSearchChange();
-							//$.listView.searchText = e.source.value; 
+							
+						
+						Ti.App.fireEvent("onSearchChange", e);
+							
+	
+				}); 
 			
+				
+				item1 = e.menu.add({
+					title : "Favorite",
+					showAsAction : Ti.Android.SHOW_AS_ACTION_ALWAYS,
+					icon : 'favorite.png'
 				});
+				item1.addEventListener("click", function(e) {					
+					Alloy.Globals.Navigator.open("notificatielijst", {restrictToFavorites:true, title:"Favorites", displayHomeAsUp:true});
+				});
+				
+				
 				
 				
 				
@@ -148,7 +147,7 @@ function doopen(evt){
 	});
 }
 }
-*/
+
 
 
  

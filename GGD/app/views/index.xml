@@ -1,5 +1,5 @@
 <Alloy>
-	<TabGroup  id="index"><!-- onOpen="doopen"-->
+	<TabGroup onOpen="doopen" id="index"><!-- onOpen="doopen"-->
 		<Tab src="win1" id="tab1" title="Overzicht"  icon="tabicons/overzicht.png"> 
 				
 		<Require id="win1" src="overzicht" />  

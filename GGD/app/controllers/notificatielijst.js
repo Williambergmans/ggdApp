@@ -329,15 +329,9 @@ var preprocessForListView = function(rawData) {
 
 
 function onJaClick(e){
-	
-	
-	
+
    var item = $.listView.sections[e.sectionIndex].items[e.itemIndex];
    Alloy.Globals.Navigator.open("vragenlijst", item.properties.calamiteit);
-    
-  
-	
-	
 }
 
 /**
@@ -404,6 +398,23 @@ var onBookmarkClick = function onClick (e){
  * 
  * @param {Object} Event data passed to the function
  */
+
+if(OS_ANDROID){
+
+$.wrapper.addEventListener('open',function(e){
+	
+	Ti.App.addEventListener("onSearchChange",onSearchChange);
+	
+});
+
+$.wrapper.addEventListener('close',function(e){
+	
+	Ti.App.removeEventListener("onSearchChange",onSearchChange);
+	
+});
+
+}
+
 onSearchChange = function onChange(e){
 	$.listView.searchText = e.source.value;
 };
@@ -478,7 +489,7 @@ $.wrapper.addEventListener("open", function onWindowOpen(){
 		var activity = $.wrapper.getActivity();
 		activity.onCreateOptionsMenu = function(e) {
 	 		e.menu.clear();
-		};	
+		};	 
 		activity.invalidateOptionsMenu();
 	}
 });
@@ -490,21 +501,8 @@ Ti.App.addEventListener("refresh-data", function(e){
 	init();
 });
 
-
-
-var control = Ti.UI.createRefreshControl({
-    tintColor:'red'
-});
-control.addEventListener('refreshstart',function(e){
-    Ti.API.info('refreshstart');
-    setTimeout(function(){
-        Ti.API.debug('Timeout');
-      init();
-        control.endRefreshing();
-    }, 2000);
-});
-
-
+ 
+  
 /** 
  * Initialize View
  */

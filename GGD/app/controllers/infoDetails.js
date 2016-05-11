@@ -170,7 +170,7 @@ function toggleFavorite(){
 **/
 
 function closeWindow(){
-	$.infoDetails.close();
+	$.wrapper.close();
 }
 
 

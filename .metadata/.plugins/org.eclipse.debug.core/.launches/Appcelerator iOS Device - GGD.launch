@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.appcelerator.titanium.mobile.ui.ios.installer.launchConfigurationType">
+<booleanAttribute key="ATTR_MINIFY" value="true"/>
+<stringAttribute key="ATTR_PROJECT_NAME" value="GGD"/>
+<stringAttribute key="ATTR_TITANIUM_DEPLOY_TYPE" value="development"/>
+<booleanAttribute key="ATTR_UPLOAD_DEBUG_SYMBOLS" value="false"/>
+<stringAttribute key="appid" value="com.example.william"/>
+<stringAttribute key="certificate" value="William Bergmans (BKN6AT9JMD)"/>
+<stringAttribute key="debug_config" value="::1462800890363:192.168.56.1,192.168.25.101"/>
+<stringAttribute key="debug_hosts" value="192.168.56.1,192.168.25.101"/>
+<stringAttribute key="device_id" value="3fbc8514845ec3bb0358c2c755772aeb53599cda"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/GGD"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<stringAttribute key="process_factory_id" value="com.appcelerator.titanium.ui.logLevelFilteringProcessFactory"/>
+<stringAttribute key="sdk_version" value="9.3"/>
+<stringAttribute key="uuid" value="cf8674f2-6a2a-4186-8f46-1409fb53949f"/>
+</launchConfiguration>

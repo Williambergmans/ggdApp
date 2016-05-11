@@ -7,7 +7,7 @@ var win1 = Ti.UI.createWindow({
 
 var button1 = Ti.UI.createButton({
     backgroundImage: '/dashboard/drugsgebruik.png',
-    backgroundSelectedImage:'/dashboard/zika.png',
+    backgroundSelectedImage:'/dashboard/drugsgebruik.png',
    //title: 'Click me!',
     top: '4.6%',
     width: '29%',
@@ -18,7 +18,7 @@ var button1 = Ti.UI.createButton({
 
 var button2 = Ti.UI.createButton({
     backgroundImage: '/dashboard/zika.png',
-    backgroundSelectedImage:'/dashboard/drugsgebruik1.png',
+    backgroundSelectedImage:'/dashboard/zika.png',
    //title: 'Click me!', 
     top: '4.6%',
     width: '29%',
@@ -28,7 +28,7 @@ var button2 = Ti.UI.createButton({
 
 var button3 = Ti.UI.createButton({
     backgroundImage: '/dashboard/tattoo.png',
-    backgroundSelectedImage:'/dashboard/drugsgebruik1.png',
+    backgroundSelectedImage:'/dashboard/tattoo.png',
    //title: 'Click me!',
     top: '4.6%',
     width: '29%',
@@ -39,7 +39,7 @@ var button3 = Ti.UI.createButton({
 
 var button4 = Ti.UI.createButton({
     backgroundImage: '/dashboard/milieu.png',
-    backgroundSelectedImage:'/dashboard/drugsgebruik1.png',
+    backgroundSelectedImage:'/dashboard/milieu.png',
    //title: 'Click me!',
     top: '26%',
     width: '29%',
@@ -49,7 +49,7 @@ var button4 = Ti.UI.createButton({
 
 var button5 = Ti.UI.createButton({
     backgroundImage: '/dashboard/roken.png',
-    backgroundSelectedImage:'/dashboard/drugsgebruik1.png',
+    backgroundSelectedImage:'/dashboard/roken.png',
    //title: 'Click me!',
     top: '26%',
     width: '29%',
@@ -59,7 +59,7 @@ var button5 = Ti.UI.createButton({
 
 var button6 = Ti.UI.createButton({
     backgroundImage: '/dashboard/vaccinaties.png',
-    backgroundSelectedImage:'/dashboard/drugsgebruik1.png',
+    backgroundSelectedImage:'/dashboard/vaccinaties.png',
    //title: 'Click me!',
     top: '26%',
     width: '29%',
@@ -70,7 +70,7 @@ var button6 = Ti.UI.createButton({
 
 var button7 = Ti.UI.createButton({
     backgroundImage: '/dashboard/blauwalg.png',
-    backgroundSelectedImage:'/dashboard/drugsgebruik1.png',
+    backgroundSelectedImage:'/dashboard/blauwalg.png',
    //title: 'Click me!',
     top: '47.5%',
     width: '29%',
@@ -80,7 +80,7 @@ var button7 = Ti.UI.createButton({
 
 var button8 = Ti.UI.createButton({
     backgroundImage: '/dashboard/liefde.png',
-    backgroundSelectedImage:'/dashboard/drugsgebruik1.png',
+    backgroundSelectedImage:'/dashboard/liefde.png',
    //title: 'Click me!',
     top: '47.5%',
     width: '29%',
@@ -90,17 +90,17 @@ var button8 = Ti.UI.createButton({
 
 var button9 = Ti.UI.createButton({
     backgroundImage: '/dashboard/meer.png',
-    backgroundSelectedImage:'/dashboard/drugsgebruik1.png',
+    backgroundSelectedImage:'/dashboard/meer.png',
    //title: 'Click me!',
     top: '47.5%',
     width: '29%',
     height: '19.9%',
-    right: 15, 
+    right: 15,  
 });
 
 button1.addEventListener('click',function(e)
 {
-      Alloy.Globals.Navigator.open('thema1', {displayHomeAsUp:true , fullscreen:true}); 
+      Alloy.Globals.Navigator.open('thema1', {displayHomeAsUp:true}); 
 });
 button2.addEventListener('click',function(e)
 {
