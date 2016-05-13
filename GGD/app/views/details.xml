@@ -38,7 +38,7 @@
 				
 		<Button id="addFavoriteBtn" class="h4 span-width top-buffer" onClick="toggleFavorite" textid="bookmarkBtn">+ Sla op bij favorieten</Button>  
 			
-			 
+			  
 			</ScrollView>	
 		</Window>
 </Alloy>

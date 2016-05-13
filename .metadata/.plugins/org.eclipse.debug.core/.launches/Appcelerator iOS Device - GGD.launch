@@ -5,10 +5,10 @@
 <stringAttribute key="ATTR_TITANIUM_DEPLOY_TYPE" value="development"/>
 <booleanAttribute key="ATTR_UPLOAD_DEBUG_SYMBOLS" value="false"/>
 <stringAttribute key="appid" value="nl.peercode.ggdapp"/>
-<stringAttribute key="certificate" value="William Bergmans (BKN6AT9JMD)"/>
+<stringAttribute key="certificate" value="William Bergmans (P595BT8578)"/>
 <stringAttribute key="debug_config" value="::1462800890363:192.168.56.1,192.168.25.101"/>
 <stringAttribute key="debug_hosts" value="192.168.56.1,192.168.25.101"/>
-<stringAttribute key="device_id" value="itunes"/>
+<stringAttribute key="device_id" value="3fbc8514845ec3bb0358c2c755772aeb53599cda"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/GGD"/>
 </listAttribute>
@@ -17,5 +17,5 @@
 </listAttribute>
 <stringAttribute key="process_factory_id" value="com.appcelerator.titanium.ui.logLevelFilteringProcessFactory"/>
 <stringAttribute key="sdk_version" value="9.3"/>
-<stringAttribute key="uuid" value="cf8674f2-6a2a-4186-8f46-1409fb53949f"/>
+<stringAttribute key="uuid" value="5346162f-69a0-4fe5-af8e-23a76b321873"/>
 </launchConfiguration>

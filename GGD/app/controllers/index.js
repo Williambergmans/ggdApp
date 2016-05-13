@@ -157,6 +157,32 @@ function doopen(evt){
 }
 }
 
+var pushnotifications = require('com.pushwoosh.module');
+Ti.API.info("module is => " + pushnotifications);
+     
+pushnotifications.pushNotificationsRegister({
+    "pw_appid": "5CA68-8E3D5",
+    success:function(e)
+    {
+        setTimeout(function() {
+            Ti.API.info('JS registration success event: ' + e.registrationId);
+        }, 0);
+            e.registrationId == $device_id;
+    },
+    error:function(e)
+    {
+        setTimeout(function() {
+            Ti.API.error("Error during registration: "+e.error);
+        }, 0);
+    },
+    callback:function(e) // called when a push notification is received
+    {
+        setTimeout(function() {
+            //push notifications title: e.data.aps.alert
+            Ti.API.info('JS message event: ' + JSON.stringify(e.data));
+        }, 0);
+    }
+});
 
 
  

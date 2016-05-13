@@ -1,6 +1,6 @@
 =run
 GGD\:launchMode=run
-GGD\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.simulator.launchShortcut.Samsung Galaxy S5 - 4.4.4 - API 19 - 1080x1920
+GGD\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.run.device.launchShortcut.3fbc8514845ec3bb0358c2c755772aeb53599cda
 LAST_LAUNCH_TIMESTAMP=1462788502418
 eclipse.preferences.version=1
 preference.show.console.onError=true
