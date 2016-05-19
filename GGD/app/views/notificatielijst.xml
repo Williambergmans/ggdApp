@@ -73,7 +73,7 @@
 							<Label id="calamiteitName" bindId="calamiteitVraag" class="centerText h4 gray"/>
 						</View> 
 						<View id="innerView" class=""> 
-							<Button id="neeBtn" class="h4">Nee</Button>
+							<Button id="neeBtn" onClick="onNeeClick" class="h4">Nee</Button>
 							<Button id="jaBtn" onClick="onJaClick" class="h4">Ja</Button>  
 							 
 						</View>  

@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<list key="installedFeatures">
+		<item value="com.appcelerator.titanium.feature.360.rcp:4.5.0.201602170821-857lFNIFGrkSoJx58Ef1lHOIJ-O_"/>
+		<item value="com.appcelerator.titanium.studio:4.5.0.1455692286-7o7a7v9DBXeR5klfx"/>
+		<item value="com.aptana.feature:4.5.0.1455691521-B37g83CK24mu28z-Sf9833355984"/>
+		<item value="org.eclipse.emf.common:2.10.1.v20150123-0348"/>
+		<item value="org.eclipse.emf.ecore:2.10.2.v20150123-0348"/>
+		<item value="org.eclipse.help:2.0.103.v20150204-1700"/>
+		<item value="org.eclipse.platform:4.4.2.v20150204-1700"/>
+		<item value="org.eclipse.rcp:4.4.2.v20150204-1700"/>
+	</list>
 	<section name="CleanDialogSettings">
 		<item value="484" key="DIALOG_WIDTH"/>
 		<item value="374" key="DIALOG_Y_ORIGIN"/>
-		<item value="340" key="DIALOG_HEIGHT"/>
 		<item value="718" key="DIALOG_X_ORIGIN"/>
+		<item value="340" key="DIALOG_HEIGHT"/>
 		<item value="false" key="TOGGLE_SELECTED"/>
 	</section>
 </section>

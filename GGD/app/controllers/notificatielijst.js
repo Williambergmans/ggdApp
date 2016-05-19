@@ -247,12 +247,12 @@ function init(){
 	
 	/**
 	 * Sorts the `calamiteiten` array by the lastName property of the calamiteit (leverages UnderscoreJS _.sortBy function)
-	 */
-	/*
+	 *
+
 	calamiteiten = _.sortBy(calamiteiten, function(calamiteit){
-		return calamiteit.lastName;
+		return calamiteit.updated_at;
 	});
-	*/
+
 	/**
 	 * IF the calamiteiten array exists
 	 */
@@ -277,7 +277,11 @@ function init(){
 		 */
 		var calamiteitGroups  = _.groupBy(calamiteiten, function(item){
 		 	return item.calamiteitTitel.charAt(0);
-		}); 
+		 	//return item.updated_at;
+		});
+		 
+		  
+		
         
         /**
          * Iterate through each group created, and prepare the data for the ListView
@@ -304,10 +308,12 @@ function init(){
 			 */
 			indexes.push({
 				index: indexes.length,
-				title: group[0].calamiteitTitel.charAt(0)
+				//title: group[0].calamiteitTitel.charAt(0)
+				
+				
 			});
-
-
+ 
+ 
 			/**
 			 * Create a new ListViewSection, and ADD the header view created above to it.
 			 */
@@ -464,6 +470,23 @@ function onJaClick(e){
    Alloy.Globals.Navigator.open("vragenlijst", item.properties.calamiteit);
 }
 
+function onNeeClick(e){ 
+
+   var section = e.section;
+    var itemIndex = e.itemIndex;
+    var dialog = Ti.UI.createAlertDialog({
+        title : 'Weet u zeker dat u de vragenlijst niet wil invullen?',
+        buttonNames : ['Ja','Nee']
+    });
+    dialog.addEventListener('click', function(e){
+        if(e.index == 0){
+            section.deleteItemsAt(itemIndex,1);
+        } 
+    });
+    dialog.show(); 
+    
+}
+ 
 /**
  * This function handles the click events for the rows in the ListView.
  * We want to capture the calamiteit property associated with the row, and pass

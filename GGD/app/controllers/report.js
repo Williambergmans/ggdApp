@@ -225,7 +225,7 @@ function createDateView() {
        actionBar.hide();
     }
 }); 
-}
+} 
      
     
 var wrapperView    = Ti.UI.createView(); // Full screen
@@ -244,7 +244,7 @@ var containerView  = Ti.UI.createView({  // Set height appropriately
     top: 65
 });
 }
-
+ 
  if (OS_ANDROID) {
 var containerView  = Ti.UI.createView({  // Set height appropriately
     backgroundColor : '#FFF',
@@ -344,15 +344,20 @@ submitButton.addEventListener('click', function () {
 
 var picker = Ti.UI.createPicker({
         type : Ti.UI.PICKER_TYPE_DATE,
-        //useSpinner for Android Only
-        useSpinner : true,
         minDate : new Date(2016, 0, 1),
         maxDate : new Date(2016, 11, 31),
-        value : new Date(2016, 3, 12),
+        value:new Date(2014,3,12),
+         font: {
+  	          fontWeight: 'bold',
+           	fontSize:32,
+  	},
         top : 70,
         height:250,
-        width: 300          
+        width: 300,
+   
     });
+    
+    
 wrapperView.add(backgroundView);
 wrapperView.add(containerView); 
 containerView.add(titleLabel);
@@ -469,6 +474,8 @@ var separatorBottom = Ti.UI.createView ({
 });
 
 
+if (OS_IOS) {
+
 var data = [
 
     Ti.UI.createTableViewRow({title:'Row 1', hasCheck:false, rowId:1 }),
@@ -478,6 +485,18 @@ var data = [
     Ti.UI.createTableViewRow({title:'Row 5', hasCheck:false, rowId:5 })
 ];
 
+}
+if (OS_ANDROID) {
+	var data = [
+	
+	Ti.UI.createTableViewRow({title:'Row 1', height: 40, color:'#000' ,hasCheck:false, rowId:1 }),
+    Ti.UI.createTableViewRow({title:'Row 2', height: 40, color:'#000' ,hasCheck:false, rowId:2 }),
+    Ti.UI.createTableViewRow({title:'Row 3', height: 40, color:'#000' ,hasCheck:false, rowId:3 }),
+    Ti.UI.createTableViewRow({title:'Row 4', height: 40, color:'#000' ,hasCheck:false, rowId:4 }),
+    Ti.UI.createTableViewRow({title:'Row 5', height: 40, color:'#000' ,hasCheck:false, rowId:5 })
+	]; 
+}  
+ 
 var tableview = Titanium.UI.createTableView({
 	
 	
@@ -865,7 +884,7 @@ var separatorBottom = Ti.UI.createView ({
 locationButton.addEventListener('click', function () {
 	
 	if(Ti.Network.online){
-       // Ti.Geolocation.purpose = "Receive User Location";
+        Ti.Geolocation.purpose = "Receive User Location";
         Titanium.Geolocation.getCurrentPosition(function(e){
 
             if (!e.success || e.error)
@@ -880,14 +899,8 @@ locationButton.addEventListener('click', function () {
             
            
             rapLatitude = latitude;
-	         rapLongitude = longitude;
+	        rapLongitude = longitude;
            
-            //$.locValue.text = longitude;
-	        //$.locValue.value = longitude; // longitude value
-	        
-	      
-	        
-	        //$.locLbl.value = latitude;  // latitiude value  
 
         });
     }else{

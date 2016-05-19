@@ -57,6 +57,10 @@ getLocation();
 
 function getMap() {
 	
+	
+	
+	
+	
 	var wrapperView    = Ti.UI.createView(); // Full screen
 var containerView  = Ti.UI.createView({  // Set height appropriately
     backgroundColor : '#FFF',    
