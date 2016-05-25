@@ -46,12 +46,18 @@
         <manifest>
             <application android:theme="@style/Theme.Appcelerator">
                 <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBU8r8lcQc6d4lN9BPQMEzAaNy3A6wxCT0"/>
+                 <!-- Set to false if you want to disable automatic push open in foreground -->
+                <meta-data android:name="PW_BROADCAST_PUSH" android:value="true" />
+                <meta-data
+    android:name="com.google.android.gms.version"
+    android:value="@integer/google_play_services_version" />
             </application>
             <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="23"/>
             <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
             <uses-permission android:name="android.permission.INTERNET"/>
             <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
             <uses-permission android:name="android.permission.GET_TASKS"/>
+            <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
             <!-- Required for Google v6 -->
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
             <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -65,8 +71,30 @@
             <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
             <uses-permission android:name="com.appcelerator.directory.permission.MAPS_RECEIVE"/>
             <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-            <permission
-                android:name="com.appcelerator.directory.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+            <permission android:name="com.appcelerator.directory.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+            <!-- GCM connects to Google Services. -->
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <!-- GCM requires a Google account to use push notifications. -->
+            <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+            <!-- Permission to get device hwid. This permission is optional, if not used, the random hwid is generated -->
+            <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+            <!-- Keeps the processor from sleeping when a message is received. -->
+            <uses-permission android:name="android.permission.WAKE_LOCK"/>
+            <!-- This permission is required for geolocation pushes, and is used to determine whether the device can access the network. -->
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <!-- Prevents other applications from registering and receiving the application's messages. -->
+            <uses-permission android:name="PACKAGE_NAME.permission.C2D_MESSAGE"/>
+            <!-- This app has permission to register and receive data message. -->
+            <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+            <receiver
+            android:name=".GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.couchbase.todolite" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".GcmMessageHandler" />
         </manifest>
     </android>
     <mobileweb>
@@ -78,13 +106,15 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
+        <module platform="android">com.pushwoosh.module</module>
         <module platform="commonjs">ti.cloud</module>
-        <module platform="android" version="1.3.2">com.pushwoosh.module</module>
         <module platform="iphone">com.pushwoosh.module</module>
         <module platform="iphone">ti.map</module>
         <module platform="android">ti.map</module>
     </modules>
     <deployment-targets>
+        <target device="mobileweb">false</target>
+        <target device="ipad">false</target>
         <target device="android">true</target>
         <target device="iphone">true</target>
     </deployment-targets>

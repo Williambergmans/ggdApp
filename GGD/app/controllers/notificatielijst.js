@@ -196,7 +196,7 @@ function init(){
 		var sendit = Ti.Network.createHTTPClient({ 
 			onerror: function(e){
 				Ti.API.debug(e.error);
-				alert('There was an error during the conexion');
+				alert('Er is iest fout gegaan tijdens het verbinden met de server');
 			},
 		    timeout:1000,
 		});

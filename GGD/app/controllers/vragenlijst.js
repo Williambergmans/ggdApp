@@ -21,9 +21,6 @@ $.vraag4Titel.text = _args.vraag4Titel;
 $.vraag5Titel.text = _args.vraag5Titel;
 
 
-
-
-
 $.true1.addEventListener('click', function() { 
 
 	$.true1.color = "#4CBB17";

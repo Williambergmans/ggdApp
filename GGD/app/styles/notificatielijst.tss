@@ -1,9 +1,6 @@
 /**
  * 	Style for The calamiteit Template
  */
-
-
-
 ".vraagTemplate":{
 	height: '180dp',
 	width: Ti.UI.FILL
@@ -107,13 +104,6 @@
 	},
 	left: 10,
 	color: "#666"
-},
-
-".calLoc":{
-	font:{
-		fontSize: 12
-	},
-	color: "#666",
 },
 
 ".groupRight" :{ 

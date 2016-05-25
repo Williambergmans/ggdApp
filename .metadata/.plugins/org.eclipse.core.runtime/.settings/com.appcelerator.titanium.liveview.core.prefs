@@ -1,4 +1,3 @@
 eclipse.preferences.version=1
-liveview.enable=true
-liveview\:GGD=true
+liveview.enable=false
 liveview\:PushwooshSample=true

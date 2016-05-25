@@ -11,7 +11,6 @@
  * @param deselectedOptions The options for a deselected tab button.
  * 
  */
-
 var util = require('overrideTabs');
 
 
@@ -74,12 +73,9 @@ Alloy.Globals.Navigator = {
 };
 
 
-
-
-
-if (OS_ANDROID) {
 	
-
+if (OS_ANDROID) {
+    	
 
 Alloy.Globals.tabGroup=$.index;
 Alloy.Globals.currentTab=0; 
@@ -137,12 +133,7 @@ function doopen(evt){
 				item3.addEventListener("click", function(e) {					
 						Ti.App.fireEvent("androidRefresh", e);
 				});
-				
-				
-				
-				
-				
-				
+							
 				
 				break;
 		}
@@ -158,44 +149,42 @@ function doopen(evt){
 }
 
 
-// check if google playservice is installed
-var MapModule = require('ti.map');
-var rc = MapModule.isGooglePlayServicesAvailable();
-switch (rc) {
-    case MapModule.SUCCESS:
-        Ti.API.info('Google Play services is installed.');
-        break;
-    case MapModule.SERVICE_MISSING:
-        alert('Google Play services is missing. Please install Google Play services from the Google Play store.');
-        break;
-    case MapModule.SERVICE_VERSION_UPDATE_REQUIRED:
-        alert('Google Play services is out of date. Please update Google Play services.');
-        break;
-    case MapModule.SERVICE_DISABLED:
-        alert('Google Play services is disabled. Please enable Google Play services.');
-        break;
-    case MapModule.SERVICE_INVALID:
-        alert('Google Play services cannot be authenticated. Reinstall Google Play services.');
-        break;
-    default:
-        alert('Unknown error.');
-}
-
-
-
 var pushnotifications = require('com.pushwoosh.module');
 Ti.API.info("module is => " + pushnotifications);
      
 pushnotifications.pushNotificationsRegister({
     "pw_appid": "5CA68-8E3D5",
     "gcm_projectid": "414217903299",
+   
     success:function(e) 
-    {
+    {   
+    	    
+    	
         setTimeout(function() {
             Ti.API.info('JS registration success event: ' + e.registrationId);
+             
+                if(true){
+        var request = Ti.Network.createHTTPClient({
+		    onload: function(e){
+		    	// alert('Uw melding is verzonden');
+		    	 // json = JSON.parse(this.responseText);
+		    	  console.log(this.responseText);
+		    },
+		    onerror: function(e){
+		    	console.log(e);
+		        Ti.API.debug(e.error);
+		        alert('There was an error during the conection');
+		    },
+		    //timeout:0,
+			});	
+			//Request the data from the web service, Here you have to change it for your local ip
+			request.open("POST","http://www.williambergmans.nl/ggd/public/postUserData");
+			var params = ({"id": "0" ,"phoneid": e.registrationId});  
+		    request.send(params); 
+        }
         }, 0);
-            e.registrationId == $device_id;
-    },
+    }, 
+    
     error:function(e)
     {
         setTimeout(function() {
@@ -210,18 +199,12 @@ pushnotifications.pushNotificationsRegister({
         }, 0);
     }
 });
- 
-  
 
+
+  
  
 $.index.open();
  
-
-
- 
- 
-
-
 
 
 

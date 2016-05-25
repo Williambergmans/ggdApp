@@ -10,16 +10,6 @@ var _args = arguments[0] || {}, // Any passed in arguments will fall into this p
 	indexes = [];  // Array placeholder for the ListView Index (used by iOS only);
 	
 
-
-
-$.kaart.addEventListener("focus",function(e){
-    	getLocation();
-        getMap();
-});
-
-
-
-/*
 if(!Titanium.Geolocation.hasLocationPermissions(Titanium.Geolocation.AUTHORIZATION_ALWAYS)) {
 Titanium.Geolocation.requestLocationPermissions(Titanium.Geolocation.AUTHORIZATION_ALWAYS, function(result){
 		if(!result.success) {
@@ -29,7 +19,6 @@ Titanium.Geolocation.requestLocationPermissions(Titanium.Geolocation.AUTHORIZATI
 		}
 	});
 }
-*/
 
 function getLocation() {
 	 
@@ -47,7 +36,7 @@ function getLocation() {
             userLat = e.coords.latitude;
         });
     }else{
-        alert("Internet connection is required to use localization features");
+        alert("Er is een Internet connectie nodig om uw locatie te bepalen");
     }	
              
 }  
@@ -134,7 +123,10 @@ $.kaart.add(wrapperView);
 }
 
 
-
+$.kaart.addEventListener("focus",function(e){
+    	getLocation();
+        getMap();
+});
 
 
 

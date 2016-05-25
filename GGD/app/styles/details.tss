@@ -19,14 +19,6 @@
 
 },
 
-'.separator':{
-	top:25,
-	height: 1,
-	width: "90%",
-	backgroundColor:"#acacac"
-},
-
-
 /**
  * 	Action Button Styles
  *  These styles represent unicode character codes for the icon fonts
@@ -39,29 +31,6 @@
 
 ".icon-email":{
 	text:"\uf0e0"
-},
-
-".icon-message":{
-	text:"\uf075"
-},
-
-".icon-calendar":{
-	text: "\uf073"
-},
-
-".icon-btn":{
-	height: 60,
-	width: 60,
-	color: "#C41230",
-	borderRadius: 30,
-	borderWidth: 2,
-	borderColor: "#C41230",
-	backgroundColor: "#F2D0D6",
-	textAlign: "center",
-	font:{
-		fontSize: 24
-	},
-	left:"10%"
 },
 
 ".icon-long-btn":{

@@ -5,13 +5,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="wholeword"/>
-		<item value="date" key="selection"/>
+		<item value="location" key="selection"/>
 		<list key="findhistory">
+			<item value="location"/>
+			<item value="acti"/>
+			<item value="conne"/>
+			<item value="loca"/>
+			<item value="theme"/>
 			<item value="date"/>
 			<item value="tableview"/>
 			<item value="categor"/>
-			<item value="http"/>
-			<item value="onja"/>
 		</list>
 	</section>
 </section>

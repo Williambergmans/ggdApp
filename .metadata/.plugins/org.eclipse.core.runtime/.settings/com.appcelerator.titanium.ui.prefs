@@ -1,7 +1,7 @@
 =run
 GGD\:launchMode=run
-GGD\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.simulator.launchShortcut.Samsung Galaxy S5 - 4.4.4 - API 19 - 1080x1920
-LAST_LAUNCH_TIMESTAMP=1463582997608
+GGD\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.8098F253-4D2E-490D-879E-4759C6E9B707
+LAST_LAUNCH_TIMESTAMP=1464077083592
 PushwooshSample\:launchMode=run
 PushwooshSample\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.5FD70C18-73F8-42BD-BEAA-A486E9C52E77
 eclipse.preferences.version=1
