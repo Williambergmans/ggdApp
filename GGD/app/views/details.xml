@@ -1,7 +1,7 @@
 <Alloy>
 	<!-- Main Container of the View, title of the Window is pulled from the title property on the main view-->
 	
-		<Window  class="container vgroup" title="Details" tabBarHidden="true">
+		<Window id="details" class="container vgroup" title="Details" tabBarHidden="true">
 			
 			
 			<ActionBar platform="android" displayHomeAsUp="true" onHomeIconItemSelected="closeWindow" />
@@ -15,7 +15,7 @@
 				-->
 				<Module id="mapview" module="ti.map" method="createView" platform="android,ios" class='no-touch top' />
 				<View ns="Ti.Map" id="mapview" platform="mobileweb" class='buffer  no-touch top' />
-			
+			 
 			
 				<!-- User Information -->
 				<View class="vgroup top size">
@@ -30,8 +30,8 @@
 			        <Label id="wattedoen" class='h5 left-buffer right-buffer top-buffer gray no-touch' >Text</Label> 
 				</View>
 				 
-				<Label  class="icon icon-long-btn top-buffer ">Meer informatie over blauwalg</Label><!-- onClick="callContact" --> 
-				<Label class="h5 left-buffer top-buffer gray no-touch">Heeft u meer vragen en wilt u contact opnemen met de GGD?</Label>
+				<!-- <Label  class="icon icon-long-btn top-buffer ">Meer informatie over blauwalg</Label>onClick="callContact" --> 
+				<Label class="h3 left-buffer top-buffer gray no-touch">Heeft u vragen?</Label>
 				<Label id="callBtn" class="icon icon-long-btn top-buffer" onClick="callContact">\uf095 Bel</Label> 
 				<Label class="lblMiddle gray">Of</Label>
 				<Label id="emailBtn" class="icon icon-long-btn icon-email" onClick="emailContact">\uf0e0 Mail</Label>

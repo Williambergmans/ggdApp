@@ -5,16 +5,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="wholeword"/>
-		<item value="location" key="selection"/>
+		<item value="icon.png" key="selection"/>
 		<list key="findhistory">
-			<item value="location"/>
-			<item value="acti"/>
-			<item value="conne"/>
-			<item value="loca"/>
-			<item value="theme"/>
-			<item value="date"/>
-			<item value="tableview"/>
-			<item value="categor"/>
+			<item value="icon.png"/>
+			<item value="icon"/>
+			<item value="max"/>
+			<item value="&quot;calamiteitOmschrijving"/>
+			<item value="text"/>
+			<item value="title"/>
+			<item value="maxLength"/>
+			<item value="sub"/>
 		</list>
 	</section>
 </section>

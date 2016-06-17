@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Alloy>
-	<Window id="settings" title="Instellingen" tabBarHidden="true" onClose="validateAndSave">
+	<Window id="settings" title="Instellingen" tabBarHidden="true">
 		<TableView id="table" separatorColor="transparent">
 			<!--
 			<TableViewSection> 

@@ -18,6 +18,7 @@
 					</View>
 					<View class="view-row-separator"/>
 				</TableViewRow>
+				<!--
 				<TableViewRow class="tableviewrow-form-row" id="date" hasChild="false">
 					<View>
 						<Label class="label-row-title" title="Datum" id="dateLbl">Datum</Label>
@@ -28,6 +29,7 @@
 					</View>
 					<View class="view-row-separator"/>
 				</TableViewRow>
+				-->
 				<TableViewRow class="tableviewrow-form-row" id="category" hasChild="false">
 					<View>
 						<Label class="label-row-title" title="Categorie" id="catLbl">Categorie</Label>
@@ -58,19 +60,35 @@
 						</View>
 					</View>
 				</TableViewRow>
-				<TableViewRow>
-					<View>
-								<Label id="rapportBtn" class="rapportBtn " onClick="insertData">Rapporteer</Label>
-					</View>
-				</TableViewRow>
+				
 			</TableViewSection>
-			<!--
 			<TableViewSection>
 				<HeaderView>
 					<View class="view-headerview-form">
 						<Label class="label-tableviewsection-header left-buffer" text="Optioneel"/>
 					</View>
 				</HeaderView>
+				<TableViewRow class="tableviewrow-form-row" id="mail" hasChild="false">
+					<View>
+						<Label class="label-row-title" title="Mail" id="mailLbl">Email adres</Label>
+						<View class="hgroup groupRight size right-buffer ">
+							<Label class="label-row-subtitle" text="" id="mailValue"/>
+							<Label class="label-row-arrow  right"/>
+						</View>
+					</View>
+					<View class="view-row-separator"/>
+				</TableViewRow>
+				<TableViewRow class="tableviewrow-form-row" id="telefoon" hasChild="false">
+					<View>
+						<Label class="label-row-title" title="Mail" id="telLbl">Mobiele nummer</Label>
+						<View class="hgroup groupRight size right-buffer ">
+							<Label class="label-row-subtitle" text="" id="telValue"/>
+							<Label class="label-row-arrow  right"/>
+						</View>
+					</View>
+					<View class="view-row-separator"/>
+				</TableViewRow>
+				<!--
 				<TableViewRow class="tableviewrow-form-row" id="pic" hasChild="false">
 					<View>
 						<Label class="label-row-title" title="Datum" id="picLbl">Verstuur foto</Label>
@@ -80,11 +98,22 @@
 						</View>
 					</View>
 				</TableViewRow>
+				<TableViewRow class="tableviewrow-form-row" id="pic" hasChild="false">
+					<View>
+						<Label class="label-row-title" title="Datum" id="picLbl">Verstuur foto</Label>
+						<View class="hgroup groupRight size right-buffer ">
+							<Label class="label-row-subtitle  left-buffer" text="" id="picValue"/>
+							<Label class="label-row-arrow right"/>
+						</View> 
+					</View>
+				</TableViewRow>
+				-->
+				<TableViewRow>
+					<View>
+								<Label id="rapportBtn" class="rapportBtn " onClick="insertData">Rapporteer</Label>
+					</View>
+				</TableViewRow>
 			</TableViewSection>
-			-->
 		</TableView> 
-	
-
-
 	</Window>
 </Alloy>

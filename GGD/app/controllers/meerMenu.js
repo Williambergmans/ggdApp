@@ -1,5 +1,3 @@
-
-
 var items = [
 	    {
 	        menuicon: {text: "\uf041"}, 
@@ -22,7 +20,6 @@ var items = [
 	        bindId : '4',
 	    },  
 	];
-	
 	/*
 	
 	items.push({
@@ -33,9 +30,6 @@ var items = [
 
 	*/
 $.elementsList.sections[0].setItems(items); 
-
-
-
 
 
  $.elementsList.addEventListener('itemclick', function(e){

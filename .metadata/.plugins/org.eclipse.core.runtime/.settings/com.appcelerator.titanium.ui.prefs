@@ -1,9 +1,13 @@
 =run
+Employee\ Directory\:launchMode=run
+Employee\ Directory\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.simulator.launchShortcut.Samsung Galaxy S5 - 4.4.4 - API 19 - 1080x1920
 GGD\:launchMode=run
-GGD\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.8098F253-4D2E-490D-879E-4759C6E9B707
-LAST_LAUNCH_TIMESTAMP=1464077083592
+GGD\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.simulator.launchShortcut.Nexus_5_API_22
+LAST_LAUNCH_TIMESTAMP=1466150699547
 PushwooshSample\:launchMode=run
 PushwooshSample\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.5FD70C18-73F8-42BD-BEAA-A486E9C52E77
+com.example.text\:launchMode=run
+com.example.text\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.8098F253-4D2E-490D-879E-4759C6E9B707
 eclipse.preferences.version=1
 preference.show.console.onError=false
 preference.studio.perspective.version=103

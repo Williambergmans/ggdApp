@@ -28,9 +28,9 @@ function init(){
 		var sendit = Ti.Network.createHTTPClient({ 
 			onerror: function(e){
 				Ti.API.debug(e.error);
-				alert('Er is iest fout gegaan tijdens het verbinden met de server');
+				alert('Er is iets fout gegaan tijdens het verbinden met de server');
 			},
-		    timeout:1000,
+		    //timeout:1000,
 		}); 
 			
 		//Here you have to change it for your local ip
@@ -79,10 +79,14 @@ function init(){
 	 var infoTitel = information[0].titel;
 	 var infoPhoto = information[0].photo;
 	 var infoInhoud = information[0].info;
+	 
 	 $.titel.text = infoTitel;
 	 $.titel.value = infoTitel;
 	 $.photo.image =  infoPhoto;
 	 $.info.text = infoInhoud;
+	 _args.phone = information[0].phone;
+	 _args.email = information[0].email;
+	 
 };
 
 }; 
@@ -149,7 +153,7 @@ function callContact(){
 	var dialog = Ti.UI.createAlertDialog({
 	    cancel: 0,
 	    buttonNames: ['Cancel', 'Ok'],
-	    message: "Are you sure you want to call "+_args.phone
+	    message: "Weet u zeker dat u wilt bellen naar "+_args.phone+" ?"
 	});
 	
 	/**

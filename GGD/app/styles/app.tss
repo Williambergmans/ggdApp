@@ -27,7 +27,8 @@ overrode the settings with other TSS, XML, or JS settings:
 
 
 "Window[platform=ios]": {
-	barColor: "#20315f",
+	//barColor: "#20315f",
+	barColor: "#1A2C54",
 	statusBarStyle: Titanium.UI.iPhone.StatusBar.LIGHT_CONTENT,
 	navTintColor: "#FFF",
 	translucent: false,
@@ -54,21 +55,20 @@ overrode the settings with other TSS, XML, or JS settings:
 {
 iconIsMask: false,
 tintcolor: "#fff",
-barColor: "#000",
+barColor: "#fff",
 activeTabBackgroundColor: "#FFF",
 }
 
 "TabGroup":{
-    barColor: '#e28833',
+    barColor: '#72D5FF',
     tintColor: '#ffffff',
     translucent: 'false',
     titleAttributes:  {
         color:'white',
-        font: {
-            fontFamily:'HelveticaNeue-Light',
-        }
+        
    },
-   tabsBackgroundColor: '#e28833',
+   //tabsBackgroundColor: '#e28833',
+   tabsBackgroundColor: '#72D5FF',
    tabsTintColor: 'white',
    activeTabBackgroundColor: "#FFF",
    activeTabBackgroundFocusedColor: "#FFF",
@@ -387,7 +387,9 @@ activeTabBackgroundColor: "#FFF",
     width: Ti.UI.FILL,
 	color: "#fff",
 	borderRadius: 2,
-	backgroundColor: "#e28833",
+	//backgroundColor: "#e28833",
+	//backgroundColor: "#FEC80F",
+	backgroundColor: "#72D5FF",
 	textAlign: "center",
 	font:{
 		fontSize: 18
@@ -397,6 +399,12 @@ activeTabBackgroundColor: "#FFF",
 	bottom: 10
 },
 
-
+".view-row-separator":{
+	height:1,
+	backgroundColor:'#e5e5e5',
+	bottom:0,
+	left:10,
+	width: "100%",
+},
 
 

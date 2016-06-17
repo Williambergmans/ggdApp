@@ -1,0 +1,16 @@
+<Alloy>
+	<TabGroup  onOpen="doopen" id="index"  ><!-- onOpen="doopen"-->
+		<Tab src="win1" title="Overzicht" id="tab1"> <!--title="Overzicht"  icon="tabicons/home.png"-->
+				
+		<Require id="win1" src="overzicht" />  
+		
+		</Tab>
+		<Tab src="win2" title="Calamiteiten"><!--title="Calamiteiten" icon="tabicons/alert.png--> 
+			<Require id="win2" src="notificatielijst" /> 
+		</Tab>
+		<Tab src="win3" title="Meer"> <!--title="Meer" icon="tabicons/menu.png-->
+				<Require id="win3" src="meerMenu" />
+		</Tab> 
+	</TabGroup>   
+</Alloy>   
+  

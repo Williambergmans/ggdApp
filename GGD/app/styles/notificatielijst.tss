@@ -37,12 +37,9 @@
 	
 },
 
-
-
 ".omschrijving":{
 	font:{
 		fontSize: 14,
-		
 	},
 	left: 10,
 	width: "90%",
@@ -129,8 +126,8 @@ height: Ti.UI.SIZE
 "#jaBtn":
 {
 layout:"horizontal",
-backgroundColor: "#e28833",
-width:120,
+backgroundColor: "#72D5FF",
+width:200,
 height:40,
 left: 10,
 color: "#fff",
@@ -138,10 +135,11 @@ borderRadius: 4,
 top: 40,
 }
 
+/*
 "#neeBtn":
 {  
 layout:"horizontal",
-backgroundColor: "#828282",
+backgroundColor: "#72D5FF",
 width:120,
 height:40,
 color: "#fff",
@@ -149,7 +147,7 @@ borderRadius: 4,
 top: 40,
 
 }
-
+*/
 
 ".centerText":
 {

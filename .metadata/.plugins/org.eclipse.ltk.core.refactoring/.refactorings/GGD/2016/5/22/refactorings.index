@@ -1,3 +1,6 @@
 1464084779375	Move 'play-services-location-8.4.0.jar' to 'a'
 1464085125679	Move 'play-services-location-8.4.0.jar' to 'lib'
 1464093866526	Move 'play-services-gcm-8.4.0.jar' to 'a'
+1464357905152	Move 'loader.tss' to 'styles'
+1464357919214	Move 'loader.js' to 'controllers'
+1464357952463	Move 'loader.xml' to 'views'

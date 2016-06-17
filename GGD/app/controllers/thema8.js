@@ -15,9 +15,7 @@ var _args = arguments[0] || {}, // Any passed in arguments will fall into this p
  */
 function init(){
 	
-	 
-	
-		
+
 //Array to store the data from the todo list
 	var dataArray = [];
 	
@@ -33,7 +31,7 @@ function init(){
 				Ti.API.debug(e.error);
 				alert('Er is iest fout gegaan tijdens het verbinden met de server');
 			},
-		    timeout:1000,
+		   // timeout:1000,
 		});
 			
 		//Here you have to change it for your local ip
@@ -82,12 +80,12 @@ function init(){
 	 var infoTitel = information[7].titel;
 	 var infoPhoto = information[7].photo;
 	 var infoInhoud = information[7].info;
-	 phone = information[7].phone;
-	 
 	 $.titel.text = infoTitel;
 	 $.titel.value = infoTitel;
 	 $.photo.image =  infoPhoto;
 	 $.info.text = infoInhoud;
+	 _args.phone = information[7].phone;
+	 _args.email = information[7].email;
 };
 
 }; 
@@ -154,7 +152,7 @@ function callContact(){
 	var dialog = Ti.UI.createAlertDialog({
 	    cancel: 0,
 	    buttonNames: ['Cancel', 'Ok'],
-	    message: "Are you sure you want to call "+_args.phone
+	   	message: "Weet u zeker dat u wilt bellen naar "+_args.phone+" ?"
 	});
 	
 	/**
@@ -179,7 +177,7 @@ function callContact(){
 	 * After everything is setup, we show the Alert Dialog to the User
 	 */
 	dialog.show(); 
-	 alert(_args.phone.value);
+
 };
 
 

@@ -3,7 +3,7 @@
 <booleanAttribute key="ATTR_MINIFY" value="true"/>
 <stringAttribute key="ATTR_PROJECT_NAME" value="GGD"/>
 <stringAttribute key="abi" value="x86"/>
-<stringAttribute key="device-id" value="08562cda"/>
+<stringAttribute key="device-id" value="192.168.56.101:5555"/>
 <stringAttribute key="key_password" value=""/>
 <stringAttribute key="keystore_alias" value=""/>
 <stringAttribute key="keystore_password" value=""/>

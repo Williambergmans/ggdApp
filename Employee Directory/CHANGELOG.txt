@@ -1,0 +1,5 @@
+# Changelog
+
+* updated to Titanium v5.3.0GA
+* added a default profile image
+* cleaned up the folder structure

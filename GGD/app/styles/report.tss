@@ -3,7 +3,7 @@
     width: Ti.UI.FILL,
 	color: "#fff",
 	borderRadius: 2,
-	backgroundColor: "#e28833",
+	backgroundColor: "#72D5FF",
 	textAlign: "center",
 	font:{
 		fontSize: 18
@@ -13,4 +13,10 @@
 	top:20
 
 },
- 
+ ".view-row-separator":{
+	height:1,
+	backgroundColor:'#e5e5e5',
+	bottom:0,
+	left:10,
+	width: "100%",
+},

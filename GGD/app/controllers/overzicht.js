@@ -1,11 +1,7 @@
 
 /*---------- overzichts buttons ----------*/
-
-var win1 = Ti.UI.createWindow({
    
-});
-
-var button1 = Ti.UI.createButton({
+var button1 = Ti.UI.createView({
     backgroundImage: '/dashboard/drugsgebruik.png',
     backgroundSelectedImage:'/dashboard/drugsgebruik.png',
    //title: 'Click me!',
@@ -16,7 +12,7 @@ var button1 = Ti.UI.createButton({
 });
 
 
-var button2 = Ti.UI.createButton({
+var button2 = Ti.UI.createView({
     backgroundImage: '/dashboard/zika.png',
     backgroundSelectedImage:'/dashboard/zika.png',
    //title: 'Click me!', 
@@ -26,7 +22,7 @@ var button2 = Ti.UI.createButton({
    
 });
 
-var button3 = Ti.UI.createButton({
+var button3 = Ti.UI.createView({
     backgroundImage: '/dashboard/tattoo.png',
     backgroundSelectedImage:'/dashboard/tattoo.png',
    //title: 'Click me!',
@@ -37,7 +33,7 @@ var button3 = Ti.UI.createButton({
     
 });
 
-var button4 = Ti.UI.createButton({
+var button4 = Ti.UI.createView({
     backgroundImage: '/dashboard/milieu.png',
     backgroundSelectedImage:'/dashboard/milieu.png',
    //title: 'Click me!',
@@ -47,7 +43,7 @@ var button4 = Ti.UI.createButton({
     left: 15,     
 });
 
-var button5 = Ti.UI.createButton({
+var button5 = Ti.UI.createView({
     backgroundImage: '/dashboard/roken.png',
     backgroundSelectedImage:'/dashboard/roken.png',
    //title: 'Click me!',
@@ -57,7 +53,7 @@ var button5 = Ti.UI.createButton({
    
 });
 
-var button6 = Ti.UI.createButton({
+var button6 = Ti.UI.createView({
     backgroundImage: '/dashboard/vaccinaties.png',
     backgroundSelectedImage:'/dashboard/vaccinaties.png',
    //title: 'Click me!',
@@ -68,7 +64,7 @@ var button6 = Ti.UI.createButton({
     
 });
 
-var button7 = Ti.UI.createButton({
+var button7 = Ti.UI.createView({
     backgroundImage: '/dashboard/blauwalg.png',
     backgroundSelectedImage:'/dashboard/blauwalg.png',
    //title: 'Click me!',
@@ -78,7 +74,7 @@ var button7 = Ti.UI.createButton({
     left: 15,     
 });
 
-var button8 = Ti.UI.createButton({
+var button8 = Ti.UI.createView({
     backgroundImage: '/dashboard/liefde.png',
     backgroundSelectedImage:'/dashboard/liefde.png',
    //title: 'Click me!',
@@ -88,7 +84,7 @@ var button8 = Ti.UI.createButton({
    
 });
 
-var button9 = Ti.UI.createButton({
+var button9 = Ti.UI.createView({
     backgroundImage: '/dashboard/meer.png',
     backgroundSelectedImage:'/dashboard/meer.png',
    //title: 'Click me!',
@@ -136,16 +132,22 @@ button9.addEventListener('click',function(e)
 });
 
 
-$.win1.add(button1);
-$.win1.add(button2);
-$.win1.add(button3);
-$.win1.add(button4);
-$.win1.add(button5);
-$.win1.add(button6);
-$.win1.add(button7);
-$.win1.add(button8);
-$.win1.add(button9);
+
+function onOpen(){
+	
+$.overzicht.add(button1);
+$.overzicht.add(button2);
+$.overzicht.add(button3);
+$.overzicht.add(button4);
+$.overzicht.add(button5);
+$.overzicht.add(button6);
+$.overzicht.add(button7);
+$.overzicht.add(button8);
+$.overzicht.add(button9);
+console.log("test");
 
 
-$.win1.open();
+}
+
+$.overzicht.open();
 

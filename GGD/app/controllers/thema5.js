@@ -29,7 +29,7 @@ function init(){
 				Ti.API.debug(e.error);
 				alert('Er is iest fout gegaan tijdens het verbinden met de server');
 			},
-		    timeout:1000,
+		    //timeout:1000,
 		});
 			
 		//Here you have to change it for your local ip
@@ -82,6 +82,8 @@ function init(){
 	 $.titel.value = infoTitel;
 	 $.photo.image =  infoPhoto;
 	 $.info.text = infoInhoud;
+	 _args.phone = information[4].phone;
+	 _args.email = information[4].email;
 };
 
 }; 
@@ -146,7 +148,7 @@ function callContact(){
 	var dialog = Ti.UI.createAlertDialog({
 	    cancel: 0,
 	    buttonNames: ['Cancel', 'Ok'],
-	    message: "Are you sure you want to call "+_args.phone
+	    message: "Weet u zeker dat u wilt bellen naar "+_args.phone+" ?"
 	});
 	
 	/**

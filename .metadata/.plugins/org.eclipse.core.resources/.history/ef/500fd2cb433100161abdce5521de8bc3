@@ -1,0 +1,682 @@
+var _args = arguments[0] || {}, // Any passed in arguments will fall into this property
+ userLong,
+ userLat,
+ kilometer = Ti.App.Properties.getInt("kilometer");
+ 
+ _args.kilometer = Ti.App.Properties.getInt("kilometer");
+ 
+	//kilometer = _args.kilometer;
+		
+
+ if( _args.kilometer < 999) 
+{	
+	 _args.kilometer = 1000;
+	 $.userLocStraalValue.text = kilometer/1000 + " km";
+	
+	
+}
+ $.userLocStraalValue.text = kilometer/1000 + " km";
+
+
+function getLocation() {
+	
+	if(Ti.Network.online){
+       // Ti.Geolocation.purpose = "Receive User Location"; 
+        Titanium.Geolocation.getCurrentPosition(function(e){
+
+
+            if (!e.success || e.error)
+            {
+                alert('Could not find the device location');
+                return;
+            }
+            userLong = e.coords.longitude;
+            userLat = e.coords.latitude;
+        });
+    }else{
+        alert("Internet connection is required to use localization features");
+    }	
+             
+}  
+
+getLocation();
+ 
+/** 
+ *Function to start modal when clicked on the title row **************************************
+ */
+
+$.straal.addEventListener('click', function(e) {
+	
+		userLong;
+        userLat;
+		kilometer;
+		if(kilometer == 1000)
+		{
+	    latDelta = 0.025;
+        longDelta = 0.025;
+		}
+		if(kilometer == 5000)
+		{
+	    latDelta = 0.12;
+        longDelta = 0.12;
+		}
+		if(kilometer == 15000)
+		{
+	      latDelta = 0.4;
+          longDelta = 0.4;
+		}
+		if(kilometer == 25000)
+		{
+	    latDelta = 0.6;
+        longDelta = 0.6;
+		}
+	    getLocation();
+   
+			
+	var myModal = Ti.UI.createWindow({
+    title           : 'Straal',
+    backgroundColor : '#fff'
+    
+    });
+    
+    if (OS_ANDROID) {
+    myModal.addEventListener('open',function(evt){
+    var actionBar=evt.source.activity.actionBar;
+    if (actionBar){
+       actionBar.hide();
+    }
+}); 
+}
+  
+     
+var wrapperView    = Ti.UI.createView(); // Full screen
+var backgroundView = Ti.UI.createView({  // Also full screen
+    backgroundColor : '#fff',
+    opacity         : 1
+});
+
+
+if (OS_IOS) {
+var containerView  = Ti.UI.createView({  // Set height appropriately
+    backgroundColor : '#FFF',    
+    top: 20
+});
+}
+
+if (OS_ANDROID) {
+var containerView  = Ti.UI.createView({  // Set height appropriately
+    backgroundColor : '#FFF',    
+    top: 0
+});
+}
+
+
+var titleLabel = Ti.UI.createLabel({
+  color: '#000',
+  font: { fontSize:18 },
+  text: 'Straal',
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+  top: 10,
+  width: Ti.UI.SIZE, height: Ti.UI.SIZE
+});
+
+
+var separatorTop = Ti.UI.createView ({
+	top:40,
+	height: 2,
+	width: "100%",
+	backgroundColor:"#e5e5e5",
+    zIndex: 1,
+});
+
+var separatorBottom = Ti.UI.createView ({
+	bottom: 40,
+	height: 2,
+	width: "100%",
+	backgroundColor:"#e5e5e5"
+});
+
+
+var Map = require('ti.map');
+
+
+function getMap() {
+	
+	var mapview = Map.createView({
+    mapType: Map.NORMAL_TYPE,
+    region: {latitude: userLat, longitude: userLong,
+            latitudeDelta: latDelta, longitudeDelta: longDelta},
+    animate:true,
+    regionFit:true,
+    userLocation:true,
+    top:40,
+    bottom: 50
+});
+
+var circle = Map.createCircle({
+    center: { latitude: userLat, longitude: userLong },
+    radius: kilometer, //1km = 1000
+    fillColor: "#8072D5FF",
+      strokeColor:"#00FFFFFF",
+ 
+});
+mapview.addCircle(circle);
+
+containerView.add(mapview);
+
+} 
+getMap();
+
+if (OS_IOS) {
+var km1    = Ti.UI.createButton({
+	font:{
+		fontSize: 16, 	
+	},
+    title  : '+1km',
+    width: '25%',
+    borderRadius: 4,
+    bottom : 10,
+    color: '#000',
+    left: 10,
+    backgroundColor: 'none'    
+});
+}
+if (OS_ANDROID) {
+var km1    = Ti.UI.createButton({
+	font:{
+		fontSize: 16, 	
+	},
+    title  : '+1km',
+    width: '25%',
+    borderRadius: 4,
+    bottom : 0,
+    color: '#000',
+    left: 10,
+    backgroundColor: 'none'    
+});
+}
+
+
+
+km1.addEventListener('click', function () {
+	
+	kilometer = 1000;
+    latDelta = 0.025;
+    longDelta = 0.025;    
+    getMap();
+    km1.backgroundColor = '#72D5FF';
+    km5.backgroundColor = 'none';
+    km15.backgroundColor = 'none';
+    km25.backgroundColor = 'none';
+    Ti.App.Properties.setInt('kilometer',1000);
+    
+  
+});
+
+
+
+if (OS_IOS) {
+var km5    = Ti.UI.createButton({
+	font:{
+		fontSize: 16, 	
+	},
+    title  : '+5km',
+    left :'25%',
+     width:'25%',
+    borderRadius: 4,
+    bottom : 10,
+    color: '#000',
+    backgroundColor: 'none'
+      
+});
+}
+if (OS_ANDROID) {
+var km5    = Ti.UI.createButton({
+	font:{
+		fontSize: 16, 	
+	},
+    title  : '+5km',
+    left :'25%',
+     width:'25%',
+    borderRadius: 4,
+    bottom : 0,
+    color: '#000',
+    backgroundColor: 'none'
+      
+});
+}
+
+km5.addEventListener('click', function () {
+    kilometer = 5000;
+    latDelta = 0.12;
+    longDelta = 0.12;
+    getMap();
+    km1.backgroundColor = 'none';
+    km5.backgroundColor = '#72D5FF';
+    km15.backgroundColor = 'none';
+    km25.backgroundColor = 'none';
+    Ti.App.Properties.setInt('kilometer',5000);
+    
+});
+if (OS_IOS) {
+var km15    = Ti.UI.createButton({
+	font:{
+		fontSize: 16, 	
+	},
+    title  : '+15km',
+        width:'25%',
+    borderRadius: 4,
+    bottom : 10,
+    right : '25%',
+    color: '#000',
+    backgroundColor: 'none'   
+});
+}
+if (OS_ANDROID) {
+var km15    = Ti.UI.createButton({
+	font:{
+		fontSize: 16, 	
+	},
+    title  : '+15km',
+        width:'25%',
+    borderRadius: 4,
+    bottom : 0,
+    right : '25%',
+    color: '#000',
+    backgroundColor: 'none'   
+});
+}
+km15.addEventListener('click', function () {
+    kilometer = 15000;
+     latDelta = 0.4;
+     longDelta = 0.4;
+     getMap();
+    km1.backgroundColor = 'none';
+    km5.backgroundColor = 'none';
+    km15.backgroundColor = '#72D5FF';
+    km25.backgroundColor = 'none';
+    Ti.App.Properties.setInt('kilometer',15000);
+});
+
+
+if (OS_IOS) {
+var km25    = Ti.UI.createButton({
+	font:{
+		fontSize: 16, 	
+	},
+    title  : '+25km',
+     width:'25%',
+    borderRadius: 4,
+    bottom : 10,
+    right:10,
+    color: '#000',
+    backgroundColor: 'none'   
+});
+}
+if (OS_ANDROID) {
+var km25    = Ti.UI.createButton({
+	font:{
+		fontSize: 16, 	
+	},
+    title  : '+25km',
+     width:'25%',
+    borderRadius: 4,
+    bottom : 0,
+    right:10,
+    color: '#000',
+    backgroundColor: 'none'   
+});
+}
+
+km25.addEventListener('click', function () {
+    kilometer = 25000;
+    latDelta = 0.6;
+    longDelta = 0.6;
+    getMap();
+    km1.backgroundColor = 'none';
+    km5.backgroundColor = 'none';
+    km15.backgroundColor = 'none';
+    km25.backgroundColor = '#72D5FF';
+    Ti.App.Properties.setInt('kilometer',25000);
+    
+});
+
+
+var closeButton    = Ti.UI.createButton({
+	font:{
+		fontFamily: 'fontawesome', 
+		fontSize: 24, 	
+	},
+    title  : '\uf00d',
+    top : 0,
+    left :10,
+    color: '#000',
+    backgroundColor: 'none'
+});
+
+
+if(_args.kilometer == 1000)
+{
+	km1.backgroundColor = '#72D5FF';
+}
+else if(_args.kilometer == 5000)
+{
+		km5.backgroundColor = '#72D5FF';
+}
+else if(_args.kilometer == 15000)
+{
+		km15.backgroundColor = '#72D5FF';
+}
+else if(_args.kilometer == 25000)
+{
+		km25.backgroundColor = '#72D5FF';
+}
+
+
+
+var submitButton    = Ti.UI.createButton({
+	font:{
+		fontFamily: 'fontawesome', 
+		fontSize: 24, 	
+	},
+    title  : '\uf00c',
+    top : 0,
+    right :10,
+    color: '#000',
+    backgroundColor: 'none'
+});
+closeButton.addEventListener('click', function () {
+    myModal.close();
+});
+
+submitButton.addEventListener('click', function () {
+	
+	if(kilometer != null)
+{	
+	// $.titleValue.text = fieldTitle.value;
+	// $.titleValue.value = fieldTitle.value; 
+	
+	 _args.kilometer = kilometer;
+	 myModal.close();
+	 $.userLocStraalValue.text = _args.kilometer/1000 + " km";
+
+	 
+}
+
+
+
+
+
+});
+wrapperView.add(backgroundView);
+wrapperView.add(containerView); 
+containerView.add(separatorTop);
+containerView.add(titleLabel);
+containerView.add(km1);
+containerView.add(km5);
+containerView.add(km15);
+containerView.add(km25);
+containerView.add(closeButton);
+containerView.add(submitButton);
+myModal.add(wrapperView);
+myModal.open({
+    animate : true
+});
+});	 
+
+
+	
+function addLocationmap() {	
+		
+Ti.Map = require('ti.map');
+
+	var geo = require('geo'); 
+
+	//create object instance
+	var self = Ti.UI.createWindow({
+		backgroundColor: '#800'
+	});
+
+	// create UI components
+	var view = Ti.UI.createView({
+		backgroundColor: '#fff',
+		top: 60
+	});
+	
+	var wrapperView    = Ti.UI.createView(); // Full screen
+var backgroundView = Ti.UI.createView({  // Also full screen
+    backgroundColor : '#fff',
+    opacity         : 1
+});
+var containerView  = Ti.UI.createView({  // Set height appropriately
+    backgroundColor : '#FFF',    
+    top: 20
+});
+	
+	var textfield = Ti.UI.createTextField({
+		height: '40dp',
+		top: '5dp',
+		left: '10dp',
+		right: '50dp',
+		style: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+		hintText: 'Enter an address',
+		backgroundColor: '#fff',
+		color: 'black',
+		paddingLeft: '5dp'
+	});
+	var button = Ti.UI.createButton({
+		title: '+',
+		font: {
+			fontSize: '20dp',
+			fontWeight: 'bold'
+		},
+		top: '5dp',
+		height: '40dp',
+		width: '40dp',
+		right: '5dp'
+	});
+	var mapview; 
+
+	// add map after window opens
+	self.addEventListener('open', function() {
+		// Make sure we only add the map once
+		if (mapview !== undefined) {
+			return;
+		}
+
+		mapview = Titanium.Map.createView({
+			mapType: Titanium.Map.NORMAL_TYPE,
+			region: {
+				latitude: geo.LATITUDE_BASE,
+				longitude: geo.LONGITUDE_BASE,
+				latitudeDelta: 0.1,
+				longitudeDelta: 0.1
+			},
+			animate: true,
+			regionFit: true,
+			userLocation: false,
+			top: '120'
+		});
+
+		// Add initial annotation
+		mapview.addAnnotation(Ti.Map.createAnnotation({
+			animate: true,
+			pincolor: Titanium.Map.ANNOTATION_RED,
+			title: 'Appcelerator',
+			latitude: geo.LATITUDE_BASE,
+			longitude: geo.LONGITUDE_BASE,
+			leftButton: '/images/delete.png' 
+		}));
+
+		// Handle all map annotation clicks
+		mapview.addEventListener('click', function(e) {
+			if (e.annotation && (e.clicksource === 'leftButton' || e.clicksource == 'leftPane')) {
+				mapview.removeAnnotation(e.annotation);
+			}
+		});
+		self.add(mapview);
+	});
+	
+	
+
+
+	// Execute forward geocode on button click
+	button.addEventListener('click', function() {
+		
+		
+		textfield.blur();
+		geo.forwardGeocode(textfield.value, function(geodata) {
+			mapview.addAnnotation(Ti.Map.createAnnotation({
+				animate: true,
+				pincolor: Titanium.Map.ANNOTATION_RED,
+				title: geodata.title,
+				latitude: geodata.coords.latitude,
+				longitude: geodata.coords.longitude,
+				leftButton: '/images/delete.png'
+			}));
+			mapview.setLocation({
+				latitude: geodata.coords.latitude,
+				longitude: geodata.coords.longitude,
+				latitudeDelta: 1,
+				longitudeDelta: 1
+			});
+		});
+		
+	});
+	
+	
+	var submitButton    = Ti.UI.createButton({
+	font:{
+		fontFamily: 'fontawesome', 
+		fontSize: 24, 	
+	},
+    title  : '\uf00c',
+    top : 0,
+    right :10,
+    color: '#000',
+    backgroundColor: 'none'
+});
+
+submitButton.addEventListener('click', function () {
+	
+	
+	
+	alert(textfield.value + LocationCoordinates.longitude);
+	
+	 self.close();   
+
+});
+
+   
+var titleLabel = Ti.UI.createLabel({
+  color: '#000',
+  font: { fontSize:18 },
+  text: 'Kies locatie',
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+  top: 10,
+  width: Ti.UI.SIZE, height: Ti.UI.SIZE
+});
+
+
+var separatorTop = Ti.UI.createView ({
+	top:40,
+	height: 2,
+	width: "100%",
+	backgroundColor:"#e5e5e5",
+    zIndex: 1,
+});
+
+var separatorBottom = Ti.UI.createView ({
+	bottom: 40,
+	height: 2,
+	width: "100%",
+	backgroundColor:"#e5e5e5"
+});
+
+var closeButton    = Ti.UI.createButton({
+	font:{
+		fontFamily: 'fontawesome', 
+		fontSize: 24, 	
+	},
+    title  : '\uf00d',
+    top : 0,
+    left :10,
+    color: '#000',
+    backgroundColor: 'none'
+});
+
+
+closeButton.addEventListener('click', function () {
+   self.close();
+});
+
+
+
+
+ 
+ 	// assemble view hierarchy
+
+wrapperView.add(backgroundView);
+wrapperView.add(containerView); 
+containerView.add(separatorTop);
+containerView.add(titleLabel);
+containerView.add(closeButton);
+containerView.add(submitButton); 
+self.add(wrapperView);
+view.add(textfield);
+view.add(button);
+self.add(view);
+self.open({
+    animate : true
+});	
+
+
+}
+
+/*
+	
+$.addLocation.addEventListener('click', function(e) {	
+
+addLocationmap();
+	
+});
+
+*/
+ 	
+
+var FIELDS = [
+	
+];  
+
+function validateAndSave(){
+	var values = {};
+	for(var i = 0, j = FIELDS.length; i< j; i++){
+		
+		if(Ti.Platform.name == "android")
+		{		
+		     Ti.API.info('field: ' + FIELDS[i].id + ', value: ' + FIELDS[i].getText());
+		}
+		else
+		{
+		     Ti.API.info('field: ' + FIELDS[i].id + ', value: ' + FIELDS[i].getValue());  			
+		}
+	}
+}
+
+/*
+
+$.account.addEventListener('click', function(e) {
+	
+	var account = Alloy.createController('account').getView();
+    //account.open(); 
+     Alloy.Globals.Navigator.open('account', {displayHomeAsUp:true}); 
+	 
+});
+
+*/
+
+
+  
+function outputState(){
+    Ti.API.info('Switch value: ' + $.notificationSwitch.value);
+} 

@@ -1,0 +1,162 @@
+/**
+ * 	Style for The calamiteit Template
+ */
+".vraagTemplate":{
+	height: '180dp',
+	width: Ti.UI.FILL
+},
+
+".template":{
+	height: '240dp',
+	width: Ti.UI.FILL
+},
+
+".title":{
+	font:{
+		fontSize: 16,
+		fontWeight: 'bold'		
+	},
+	left: 10,
+	color: "#686868",
+	top: 10,
+},
+
+".search":{ 
+	backgroundColor: "#fff",
+	borderWidth:0,
+	borderColor: "#fff",
+	tintColor: "#C41230",
+	hintText: "Zoek naam calamiteiten",
+	barColor: "#fff",
+	showBookmark:true,
+	  shadow:{
+        shadowRadius:20,
+        shadowOpacity:0.5,
+        shadowOffset:{x:5, y:10}
+   },
+	
+},
+
+
+
+".omschrijving":{
+	font:{
+		fontSize: 14,
+		
+	},
+	left: 10,
+	width: "90%",
+	top: 5,
+	color: "#666",
+	height: "80dp",
+	verticalAlign: Titanium.UI.TEXT_VERTICAL_ALIGNMENT_TOP
+},
+
+
+".avatar":{
+	borderWidth: 0,
+	borderColor: "#acacac",
+	height: 75,
+	width: 75,
+	top: 0,
+	left: 0,
+	//borderRadius: 35
+},
+
+
+
+"#listView":{
+	tintColor: "#666",
+	backgroundColor:"#fff",
+
+},
+
+".favorite":{
+	font:{ 
+		fontSize: 25,
+		fontFamily:"icomoon",
+	},
+	color:"#038BC8",
+	text:"\uf005",	
+	right: 10
+},
+
+".left-buffer":{
+	left: 0
+},
+
+".dot-line":{
+	backgroundColor: "#ececec",
+	width: Ti.UI.FULL,
+	height: 1,
+	bottom: 10	
+},
+ 
+".gray-line":{
+	backgroundColor: "#ececec",
+	width: Ti.UI.FILL,
+	height: 10,	
+},
+
+".calCat":{
+	font:{
+		fontSize: 12
+	},
+	left: 10,
+	color: "#666"
+},
+
+".groupRight" :{ 
+ top: -16,	
+}
+
+
+".tempTop" :{  
+ top: 10,	
+}
+
+".dateTop" :{  
+ top: 10,	
+}
+
+"#innerView":
+{
+layout:"horizontal",
+width:Ti.UI.SIZE,
+height: Ti.UI.SIZE
+}
+
+"#jaBtn":
+{
+layout:"horizontal",
+backgroundColor: "#72D5FF",
+width:240,
+height:40,
+left: 10,
+color: "#fff",
+borderRadius: 4,
+top: 40,
+}
+
+/*
+"#neeBtn":
+{  
+layout:"horizontal",
+backgroundColor: "#72D5FF",
+width:120,
+height:40,
+color: "#fff",
+borderRadius: 4,
+top: 40,
+
+}
+*/
+
+".centerText":
+{
+	textAlign: "center", 
+	top:30,
+} 
+
+
+

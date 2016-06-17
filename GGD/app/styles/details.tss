@@ -38,13 +38,14 @@
     width: Ti.UI.FILL,
 	color: "#fff",
 	borderRadius: 2,
-	backgroundColor: "#e28833",
+	backgroundColor: "#72D5FF",
 	textAlign: "center",
 	font:{
 		fontSize: 18
 	},
 	left: 20,
 	right: 20,
+	bottom: 10
 },
 
 

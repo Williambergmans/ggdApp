@@ -1,0 +1,299 @@
+
+/*---------- overzichts buttons ----------*/
+   
+var button1 = Ti.UI.createView({
+    backgroundImage: '/dashboard/drugsgebruik.png',
+    backgroundSelectedImage:'/dashboard/drugsgebruik.png',
+   //title: 'Click me!',
+    top: '4.6%',
+    width: '29%',
+    height: '19.9%',
+    left: 15,     
+});
+
+
+var button2 = Ti.UI.createView({
+    backgroundImage: '/dashboard/zika.png',
+    backgroundSelectedImage:'/dashboard/zika.png',
+   //title: 'Click me!', 
+    top: '4.6%',
+    width: '29%',
+    height: '19.9%',
+   
+});
+
+var button3 = Ti.UI.createView({
+    backgroundImage: '/dashboard/tattoo.png',
+    backgroundSelectedImage:'/dashboard/tattoo.png',
+   //title: 'Click me!',
+    top: '4.6%',
+    width: '29%',
+    height: '19.9%',
+    right: 15, 
+    
+});
+
+var button4 = Ti.UI.createView({
+    backgroundImage: '/dashboard/milieu.png',
+    backgroundSelectedImage:'/dashboard/milieu.png',
+   //title: 'Click me!',
+    top: '26%',
+    width: '29%',
+    height: '19.9%',
+    left: 15,     
+});
+
+var button5 = Ti.UI.createView({
+    backgroundImage: '/dashboard/roken.png',
+    backgroundSelectedImage:'/dashboard/roken.png',
+   //title: 'Click me!',
+    top: '26%',
+    width: '29%',
+    height: '19.9%',
+   
+});
+
+var button6 = Ti.UI.createView({
+    backgroundImage: '/dashboard/vaccinaties.png',
+    backgroundSelectedImage:'/dashboard/vaccinaties.png',
+   //title: 'Click me!',
+    top: '26%',
+    width: '29%',
+    height: '19.9%',
+    right: 15, 
+    
+});
+
+var button7 = Ti.UI.createView({
+    backgroundImage: '/dashboard/blauwalg.png',
+    backgroundSelectedImage:'/dashboard/blauwalg.png',
+   //title: 'Click me!',
+    top: '47.5%',
+    width: '29%',
+    height: '19.9%',
+    left: 15,     
+});
+
+var button8 = Ti.UI.createView({
+    backgroundImage: '/dashboard/liefde.png',
+    backgroundSelectedImage:'/dashboard/liefde.png',
+   //title: 'Click me!',
+    top: '47.5%',
+    width: '29%',
+    height: '19.9%',
+   
+});
+
+var button9 = Ti.UI.createView({
+    backgroundImage: '/dashboard/meer.png',
+    backgroundSelectedImage:'/dashboard/meer.png',
+   //title: 'Click me!',
+    top: '47.5%',
+    width: '29%',
+    height: '19.9%',
+    right: 15,  
+});
+
+button1.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('thema1', {displayHomeAsUp:true}); 
+});
+button2.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('thema2', {displayHomeAsUp:true});
+});
+button3.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('thema3', {displayHomeAsUp:true});
+});
+button4.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('thema4', {displayHomeAsUp:true});
+});
+button5.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('thema5', {displayHomeAsUp:true});
+});
+button6.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('thema6', {displayHomeAsUp:true});
+});
+button7.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('thema7', {displayHomeAsUp:true});
+});
+button8.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('thema8', {displayHomeAsUp:true});
+});
+button9.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('infolijst', {displayHomeAsUp:true});
+});
+
+var container = Ti.UI.createView({ layout: 'horizontal'});
+    var button;
+    for (var i=0;i<9;i++) {
+        button = Ti.UI.createButton({ title: "Button "+i, width: '33.333%'});
+        container.add(button);
+    }
+
+function onOpen(){
+	/*
+$.overzicht.add(button1);
+$.overzicht.add(button2);
+$.overzicht.add(button3);
+$.overzicht.add(button4);
+$.overzicht.add(button5);
+$.overzicht.add(button6);
+$.overzicht.add(button7);
+$.overzicht.add(button8);
+$.overzicht.add(button9);
+console.log("test");
+*/
+$.buildGrid = function(){
+
+
+	var grid = $.grid;
+	var rowstoMake = 20;
+	
+	var data = [];
+
+	var section = grid.Section();
+
+	var cell = grid.Cell();
+	cell.addIcon({
+		icon: 'icon-trash',
+		color: '#3312d3'
+	});
+	section.addCell(cell);
+
+	var cell = grid.Cell();
+	cell.addLabel({
+		text: 'txt'
+	});
+	section.addCell(cell);
+
+	var cell = grid.Cell();
+	cell.addLabel({
+		text: 'txt'
+	});
+	section.addCell(cell);
+
+	var cell = grid.Cell();
+	cell.addLabel({
+		text: 'txt'
+	});
+	section.addCell(cell);
+
+
+	var cell = grid.Cell();
+	cell.addLabel({
+		text: 'txt'
+	});
+	section.addCell(cell);
+
+
+	var cell = grid.Cell();
+	cell.addLabel({
+		text: 'txt'
+	});
+	section.addCell(cell);		
+
+
+	data.push(section);
+
+
+	for (var r = 0; r < rowstoMake; r++) {
+
+		/** ROW **/
+		var row = grid.Row({
+			className: 'celldata'
+		});
+
+		/** CELL **/
+		var cell1 = grid.Cell({
+			backgroundColor: '#c0c0c0'
+		});
+		cell1.addLabel({
+			text: 'txt '+r,
+		});
+		row.addCell(cell1); /** END CELL **/
+
+		/** CELL **/
+		var cell2 = grid.Cell({
+			backgroundColor: '#c0c0c0'
+		});
+		cell2.addIcon({icon: 'icon-trophy',
+		color: '#3312d3'});
+		row.addCell(cell2); /** END CELL **/
+
+
+		/** CELL **/
+		var cell3 = grid.Cell({
+			backgroundColor: '#ffcc00'
+		});
+		cell3.addImage({src: '/images/referee.png',width:'15dp',height:'15dp'});
+		row.addCell(cell3); /** END CELL **/
+
+
+
+		/** CELL **/
+		var cell4 = grid.Cell({
+			backgroundColor: '#ffcc00'
+		});
+		cell4.addLabel({
+			text: 'txt '+r,
+		});
+		row.addCell(cell4); /** END CELL **/
+
+
+
+		/** CELL **/
+		var cell5 = grid.Cell({
+			backgroundColor: '#ffcc00'
+		});
+		cell5.addLabel({
+			text: 'txt '+r,
+		});
+		row.addCell(cell5); /** END CELL **/
+
+
+
+		/** CELL **/
+		var cell6 = grid.Cell({
+			backgroundColor: '#ffcc00'
+		});
+		cell6.addLabel({
+			text: 'txt '+r,
+		});
+		row.addCell(cell6); /** END CELL **/
+
+
+		data.push(row); /** END ROW **/
+
+	}
+
+
+	grid.init({
+		data: data,
+		fixedColumns: [30, 100]
+	});
+
+	grid.setClick($.gridClick);
+};
+
+$.gridClick = function(e) {
+	alert("click: row " + e.row + ", column: " + e.column);
+}
+
+
+
+$.buildGrid();
+
+
+ 
+}
+
+$.overzicht.open();
+

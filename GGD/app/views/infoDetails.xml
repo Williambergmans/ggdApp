@@ -17,7 +17,7 @@
 					<Label id="info" class="h5 gray">Info</Label>
 				</View>
 			</View>
-			<View class="top-buffer gray-line bottom"/>
+	
 	
 				<Label id="callBtn" class="icon icon-long-btn icon-phone" onClick="callContact">\uf095 Bel</Label>
 				<Label class="lblMiddle gray">Of</Label>

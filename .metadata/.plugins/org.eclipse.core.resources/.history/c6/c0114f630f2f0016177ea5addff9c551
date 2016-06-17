@@ -1,0 +1,5 @@
+
+"#actionbar": {
+    icon: 'refresh.png',
+    displayHomeAsUp: true,
+}

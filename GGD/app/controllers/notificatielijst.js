@@ -45,6 +45,7 @@ Ti.Analytics.featureEvent(Ti.Platform.osname+"."+title+".viewed");
 
 
 
+
 /**
  * Pull To refresh
  */
@@ -61,11 +62,13 @@ function resetPullHeader(){
     imageArrow.transform=Ti.UI.create2DMatrix();
     if (refreshCount < 2) {
         imageArrow.show();
-        labelStatus.text = 'Pull down to refresh...';
+        //labelStatus.text = 'Pull down to refresh...';
+        labelStatus.text = 'Veeg naar beneden om te verversen...';
         labelLastUpdated.text = 'Last Updated: ' + getFormattedDate();
     } else {
-        labelStatus.text = 'Nothing To Refresh';
-        labelLastUpdated.text = 'Last Updated: ' + getFormattedDate();
+        //labelStatus.text = 'Nothing To Refresh';
+        labelStatus.text = 'Niets te verversen';
+        labelLastUpdated.text = 'Laatste Update: ' + getFormattedDate();
          $.listView.removeEventListener('pull', pullListener);
          $.listView.removeEventListener('pullend', pullendListener);
         eventStatus.text = 'Removed event listeners.';
@@ -85,15 +88,15 @@ function pullListener(e){
     if (e.active == false) {
         var unrotate = Ti.UI.create2DMatrix();
         imageArrow.animate({transform:unrotate, duration:180});
-        labelStatus.text = 'Pull down to refresh...';
+        labelStatus.text = 'Veeg naar beneden om te verversen...';
     } else {
         var rotate = Ti.UI.create2DMatrix().rotate(180);
         imageArrow.animate({transform:rotate, duration:180});
         if (refreshCount == 0) {
-            labelStatus.text = 'Release to get Calamiteiten...';
+            labelStatus.text = 'Laat het scherm los voor nieuwe data...';
           
         } else {
-            labelStatus.text = 'Release to get calamiteiten...';
+            labelStatus.text = 'Laat het scherm los voor nieuwe data...';
           
         } 
     }
@@ -103,10 +106,10 @@ function pullendListener(e){
     eventStatus.text = 'EVENT pullend FIRED.';
 
     if (refreshCount == 0) {
-        labelStatus.text = 'Release to get Calamiteiten..'; 
+        labelStatus.text = 'Laat het scherm los voor nieuwe data...'; 
     
     } else {
-        labelStatus.text = 'Release to get Calamiteiten..';
+        labelStatus.text = 'Laat het scherm los voor nieuwe data...';
        
     }
     imageArrow.hide();
@@ -118,12 +121,12 @@ function pullendListener(e){
 }
 
 var tableHeader = Ti.UI.createView({
-    backgroundColor:'#e2e7ed',
+    backgroundColor:'#72D5FF',
     width:320, height:80
 });
 
 var border = Ti.UI.createView({
-    backgroundColor:'#576c89',
+    backgroundColor:'#72D5FF',
     bottom:0,
     height:2
 });
@@ -137,7 +140,7 @@ var imageArrow = Ti.UI.createImageView({
 tableHeader.add(imageArrow);
 
 var labelStatus = Ti.UI.createLabel({
-    color:'#576c89',
+    color:'#fff',
     font:{fontSize:13, fontWeight:'bold'},
     text:'Pull down to refresh...',
     textAlign:'center',
@@ -147,7 +150,7 @@ var labelStatus = Ti.UI.createLabel({
 tableHeader.add(labelStatus);
 
 var labelLastUpdated = Ti.UI.createLabel({
-    color:'#576c89',
+    color:'#fff',
     font:{fontSize:12},
     text:'Last Updated: ' + getFormattedDate(),
     textAlign:'center',
@@ -196,7 +199,7 @@ function init(){
 		var sendit = Ti.Network.createHTTPClient({ 
 			onerror: function(e){
 				Ti.API.debug(e.error);
-				alert('Er is iest fout gegaan tijdens het verbinden met de server');
+				alert('Er is iets fout gegaan tijdens het verbinden met de server');
 			},
 		    timeout:1000,
 		});
@@ -207,7 +210,7 @@ function init(){
 		//Function to be called upon a successful response
 		sendit.onload = function(){
 		
-			
+			 
 		     json = JSON.parse(this.responseText);
 			 json = json.calamiteiten;
 			//if the database is empty show an alert
@@ -228,34 +231,19 @@ function init(){
 
 
 
-
-
-
-
-
-
 	/**
-	 * Access the FileSystem Object to read in the information from a flat file (lib/calamiteitData/data.js)
-	 * DOCS: http://docs.appcelerator.com/platform/latest/#!/api/Titanium.Filesystem
+ * Sorts the `calamiteiten` array by the lastName property of the calamiteit (leverages UnderscoreJS _.sortBy function)
 	 */
-	//var file = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory + "userData/calamiteiten.json"); 
 	
-	/**
-	 * Populate the calamiteiten variable from the file this call returns an array
-	 */
-	//calamiteiten = JSON.parse(file.read().text).calamiteiten; 
 	
-	/**
-	 * Sorts the `calamiteiten` array by the lastName property of the calamiteit (leverages UnderscoreJS _.sortBy function)
-	 *
-
-	calamiteiten = _.sortBy(calamiteiten, function(calamiteit){
-		return calamiteit.updated_at;
+	
+	
+	calamiteiten = _.sortBy(calamiteiten, function(item){
+		return item.updated_at.date;
 	});
-
-	/**
-	 * IF the calamiteiten array exists
-	 */
+	
+	
+	
 	 
 	function builtListview(calamiteiten)
 	{
@@ -274,15 +262,17 @@ function init(){
 		/**
 		 * Group the data by first letter of last name to make it easier to create 
 		 * sections. (leverages the UndrescoreJS _.groupBy function)
-		 */
-		var calamiteitGroups  = _.groupBy(calamiteiten, function(item){
-		 	return item.calamiteitTitel.charAt(0);
-		 	//return item.updated_at;
-		});
-		 
-		  
 		
-        
+		var calamiteitGroups  = _.groupBy(calamiteiten, function(item){
+		 	//return item.calamiteitTitel;
+		 	return item.updated_at; 
+		});
+		 */
+		var calamiteitGroups = _.groupBy(calamiteiten, function(item){
+		return item.updated_at;
+	});
+	
+		   
         /**
          * Iterate through each group created, and prepare the data for the ListView
          * (Leverages the UnderscoreJS _.each function)
@@ -308,9 +298,7 @@ function init(){
 			 */
 			indexes.push({
 				index: indexes.length,
-				//title: group[0].calamiteitTitel.charAt(0)
-				
-				
+			
 			});
  
  
@@ -393,13 +381,15 @@ function init(){
  * 	@param {Object} Raw data elements from the JSON file.
  */
 var preprocessForListView = function(rawData) {
-	 
+	
+	
+	  
 	/**
 	 * If we need to filter the view to only show bookmars, check to see if the `restrictToFavorites` 
 	 * flag has been passed in as an argument to the controller, and only show calamiteiten that are favorites
 	 */
 	if(_args.restrictToFavorites) {
-		
+		 
 		/**
 		 * redefines the collection to only have calamiteiten that are currently listed as favorites (leverages
 		 * 	the UnderscoreJS _.filter function )
@@ -414,13 +404,15 @@ var preprocessForListView = function(rawData) {
 		}); 
 	}
 
-
 	
 	/**
 	 * Using the rawData collection, we map data properties of the calamiteiten in this array to an array that maps an array to properly
 	 * display the data in the ListView based on the templates defined in directory.xml (levearges the _.map Function of UnderscoreJS)
 	 */
 	return _.map(rawData, function(item) {
+		
+		
+		
 		
 		/**
 		 * Need to check to see if this calamiteit item is a favorite. If it is, we will use the `favoriteTemplate` in the ListView.
@@ -436,6 +428,9 @@ var preprocessForListView = function(rawData) {
 		/**
 		 * Create the new calamiteit object which is added to the Array that is returned by the _.map function. 
 		 */ 
+		 
+	
+		 
 		return {
 			template: isFavorite ? "favoriteTemplate" : isVraag ? "vragenlijstTemplate" : "calamiteitTemplate",
 			properties: {
@@ -447,7 +442,7 @@ var preprocessForListView = function(rawData) {
 				canEdit:true
 			},
 			calamiteitName: {text: item.calamiteitTitel},
-			calamiteitOmschrijving: {text: item.omschrijving},
+			calamiteitOmschrijving: {text: item.about.substring(0,325) + "..."},
 			calamiteitPhoto: {image: item.photo},
 			calamiteitCategorie: {text: "Categorie: " +  item.categorie},
 			calamiteitLocatie: {  text: " " + item.locatie},
@@ -455,13 +450,12 @@ var preprocessForListView = function(rawData) {
 			calamiteitDag: {  text:  item.dag},
 			calamiteitDagGetal: {  text:  item.dagGetal}, 
 		    calamiteitStatus: {  text:  item.start + " t/m " + item.eind},
-		    calamiteitVraag: {text: "Wilt u een enquête invullen i.v.m. "+ "'" + item.calamiteitTitel + "'"},
-
+		    calamiteitVraag: {text: "Wilt u een enquête invullen i.v.m. "+ "'" + item.calamiteitTitel + "'?"},
+      
 			     
 		};
 	});	
 };
-
 
 
 function onJaClick(e){
@@ -469,7 +463,7 @@ function onJaClick(e){
    var item = $.listView.sections[e.sectionIndex].items[e.itemIndex];
    Alloy.Globals.Navigator.open("vragenlijst", item.properties.calamiteit);
 }
-
+/*
 function onNeeClick(e){ 
 
    var section = e.section;
@@ -486,7 +480,7 @@ function onNeeClick(e){
     dialog.show(); 
     
 }
- 
+ */
 /**
  * This function handles the click events for the rows in the ListView.
  * We want to capture the calamiteit property associated with the row, and pass
@@ -513,7 +507,7 @@ function onItemClick(e){
 	if(item.template !== "vragenlijstTemplate")
 	{
 	
-	Alloy.Globals.Navigator.open("details", item.properties.calamiteit);
+	Alloy.Globals.Navigator.open("details", item.properties.calamiteit ,{displayHomeAsUp:true});
 	}
 }
 
@@ -540,7 +534,7 @@ var onBookmarkClick = function onClick (e){
 	/**
 	 * Open this same controller into a new page, pass the flag to restrict the list only to favorite Contacts and force the title
 	 */
-	Alloy.Globals.Navigator.open("notificatielijst", {restrictToFavorites:true, title:"Favorites", displayHomeAsUp:true});
+	Alloy.Globals.Navigator.open("notificatielijst", {restrictToFavorites:true, title:"Favorieten", displayHomeAsUp:true});
 };
 
 /**
@@ -663,7 +657,6 @@ Ti.App.addEventListener("refresh-data", function(e){
 	init();
 });
 
- 
   
 /** 
  * Initialize View

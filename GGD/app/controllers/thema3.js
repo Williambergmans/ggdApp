@@ -82,6 +82,8 @@ function init(){
 	 $.titel.value = infoTitel;
 	 $.photo.image =  infoPhoto;
 	 $.info.text = infoInhoud;
+	 _args.phone = information[1].phone;
+	 _args.email = information[1].email;
 };
 
 }; 
@@ -147,7 +149,7 @@ function callContact(){
 	var dialog = Ti.UI.createAlertDialog({
 	    cancel: 0,
 	    buttonNames: ['Cancel', 'Ok'],
-	    message: "Are you sure you want to call "+_args.phone
+	   	//message: "Weet u zeker dat u wilt bellen naar "+_args.phone+" ?"
 	});
 	
 	/**

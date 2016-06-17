@@ -1,0 +1,9 @@
+<Alloy>
+	<Window id="overzicht"  onOpen="onOpen" >
+		<<ActionBar platform="android" displayHomeAsUp="true" title=""  />
+		<TitleControl><View ><ImageView width="80" height="35" image ="logo.png"></ImageView></View></TitleControl>
+		
+		
+		
+			</Window>	
+</Alloy>       

@@ -60,7 +60,6 @@
         background.add(tab[0] = Ti.UI.createLabel({	
          	 color: '#fff',
              font: { fontSize:30 },
-             //text: '\uf015 f00a',
              text: '\uf00a',
              font:{
 		     fontFamily: 'fontawesome', 

@@ -97,3 +97,9 @@ zIndex: 10
 	tintColor: "#666",
 	backgroundColor:"#fff"
 }
+"#bookmarkBtn":{
+	tintColor: "#666",
+	backgroundColor:"#fff",
+	color: "#fff"
+}
+

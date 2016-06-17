@@ -2,7 +2,11 @@
 <launchConfiguration type="com.appcelerator.titanium.mobile.ui.android.simulator.launchConfigurationType">
 <stringAttribute key="ATTR_PROJECT_NAME" value="GGD"/>
 <stringAttribute key="abi" value="x86"/>
-<stringAttribute key="device-id" value="Samsung Galaxy S5 - 4.4.4 - API 19 - 1080x1920"/>
+<stringAttribute key="device-id" value="Nexus_5_API_22"/>
+<stringAttribute key="key_password" value=""/>
+<stringAttribute key="keystore_alias" value=""/>
+<stringAttribute key="keystore_password" value=""/>
+<stringAttribute key="keystore_path" value=""/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/GGD"/>
 </listAttribute>

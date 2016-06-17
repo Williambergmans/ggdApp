@@ -1,0 +1,287 @@
+
+/*---------- overzichts buttons ----------*/
+   
+var button1 = Ti.UI.createView({
+    backgroundImage: '/dashboard/drugsgebruik.png',
+    backgroundSelectedImage:'/dashboard/drugsgebruik.png',
+   //title: 'Click me!',
+    top: '4.6%',
+    width: '29%',
+    height: '19.9%',
+    left: 15,     
+});
+
+
+var button2 = Ti.UI.createView({
+    backgroundImage: '/dashboard/zika.png',
+    backgroundSelectedImage:'/dashboard/zika.png',
+   //title: 'Click me!', 
+    top: '4.6%',
+    width: '29%',
+    height: '19.9%',
+   
+});
+
+var button3 = Ti.UI.createView({
+    backgroundImage: '/dashboard/tattoo.png',
+    backgroundSelectedImage:'/dashboard/tattoo.png',
+   //title: 'Click me!',
+    top: '4.6%',
+    width: '29%',
+    height: '19.9%',
+    right: 15, 
+    
+});
+
+var button4 = Ti.UI.createView({
+    backgroundImage: '/dashboard/milieu.png',
+    backgroundSelectedImage:'/dashboard/milieu.png',
+   //title: 'Click me!',
+    top: '26%',
+    width: '29%',
+    height: '19.9%',
+    left: 15,     
+});
+
+var button5 = Ti.UI.createView({
+    backgroundImage: '/dashboard/roken.png',
+    backgroundSelectedImage:'/dashboard/roken.png',
+   //title: 'Click me!',
+    top: '26%',
+    width: '29%',
+    height: '19.9%',
+   
+});
+
+var button6 = Ti.UI.createView({
+    backgroundImage: '/dashboard/vaccinaties.png',
+    backgroundSelectedImage:'/dashboard/vaccinaties.png',
+   //title: 'Click me!',
+    top: '26%',
+    width: '29%',
+    height: '19.9%',
+    right: 15, 
+    
+});
+
+var button7 = Ti.UI.createView({
+    backgroundImage: '/dashboard/blauwalg.png',
+    backgroundSelectedImage:'/dashboard/blauwalg.png',
+   //title: 'Click me!',
+    top: '47.5%',
+    width: '29%',
+    height: '19.9%',
+    left: 15,     
+});
+
+var button8 = Ti.UI.createView({
+    backgroundImage: '/dashboard/liefde.png',
+    backgroundSelectedImage:'/dashboard/liefde.png',
+   //title: 'Click me!',
+    top: '47.5%',
+    width: '29%',
+    height: '19.9%',
+   
+});
+
+var button9 = Ti.UI.createView({
+    backgroundImage: '/dashboard/meer.png',
+    backgroundSelectedImage:'/dashboard/meer.png',
+   //title: 'Click me!',
+    top: '47.5%',
+    width: '29%',
+    height: '19.9%',
+    right: 15,  
+});
+
+button1.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('thema1', {displayHomeAsUp:true}); 
+});
+button2.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('thema2', {displayHomeAsUp:true});
+});
+button3.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('thema3', {displayHomeAsUp:true});
+});
+button4.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('thema4', {displayHomeAsUp:true});
+});
+button5.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('thema5', {displayHomeAsUp:true});
+});
+button6.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('thema6', {displayHomeAsUp:true});
+});
+button7.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('thema7', {displayHomeAsUp:true});
+});
+button8.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('thema8', {displayHomeAsUp:true});
+});
+button9.addEventListener('click',function(e)
+{
+      Alloy.Globals.Navigator.open('infolijst', {displayHomeAsUp:true});
+});
+
+var container = Ti.UI.createView({ layout: 'horizontal'});
+    var button;
+    for (var i=0;i<9;i++) {
+        button = Ti.UI.createButton({ title: "Button "+i, width: '33.333%'});
+        container.add(button);
+    }
+
+function onOpen(){
+	/*
+$.overzicht.add(button1);
+$.overzicht.add(button2);
+$.overzicht.add(button3);
+$.overzicht.add(button4);
+$.overzicht.add(button5);
+$.overzicht.add(button6);
+$.overzicht.add(button7);
+$.overzicht.add(button8);
+$.overzicht.add(button9);
+console.log("test");
+*/
+function createGrid(options) {
+
+    // default options
+    var defaultOptions = {
+        gridViewOptions: {
+            top: 20,
+            left: 10,
+            right: 10,
+            bottom: 10
+        },
+        rows: 3,
+        columns: 3,
+        selectedCellOptions: {
+            backgroundColor: '#f33'
+        },
+        strokeColor: '#000',
+        strokeWidth: 1,
+        click: null
+    };
+
+    // merge default options into current options
+    options = options || {};
+    for (var n in defaultOptions) {
+        if (defaultOptions.hasOwnProperty(n)) {
+            options[n] = options[n] || defaultOptions[n];
+        }
+    }
+
+    // create our grid
+    var grid = Ti.UI.createView(options.gridViewOptions);
+    var widthPercentIncrement = (1 / options.columns) * 100;
+    var heightPercentIncrement = (1 / options.rows) * 100;
+
+    // add columns and rows asynchronously
+    setTimeout(function() {
+        for (var i = 1; i < options.columns; i++) {
+            grid.add(Ti.UI.createView({
+                backgroundColor: options.strokeColor,
+                top: 0, bottom: 0, width: options.strokeWidth,
+                left: widthPercentIncrement * i + '%',
+                ignoreClicks: true
+            }));
+        }
+        for (var j = 1; j < options.rows; j++) {
+            grid.add(Ti.UI.createView({
+                backgroundColor: options.strokeColor,
+                left: 0, right: 0, height: options.strokeWidth,
+                top: heightPercentIncrement * j + '%',
+                ignoreClicks: true
+            }));
+        }
+    }, 1);
+
+    // add event listener
+    var selectedCells = {}, recycledViews = [];
+    grid.addEventListener('click', function(evt) {
+        var source = evt.source;
+        if (source.ignoreClicks) {
+            return;
+        }
+        // figure out which column and row was clicked
+        var column, row, cell;
+        if (source.column) {
+            column = source.column;
+            row = source.row;
+            cell = source;
+        }
+        else {
+            column = parseInt(evt.x / source.width * options.columns);
+            row = parseInt(evt.y / source.height * options.rows);
+            cell = false;
+        }
+
+        // control if the cell is filled in
+        var selected = selectedCells[column + '-' + row] == null;
+        if (selected) {
+            // reuse existing views, if possible
+            cell = cell || recycledViews.pop() || Ti.UI.createView(options.selectedCellOptions);
+            cell.left = widthPercentIncrement * column + '%';
+            cell.right = widthPercentIncrement * (options.columns - column - 1) + '%';
+            cell.top = heightPercentIncrement * row + '%';
+            cell.bottom = heightPercentIncrement * (options.rows - row - 1) + '%';
+            cell.column = column;
+            cell.row = row;
+            selectedCells[column + '-' + row] = cell;
+            grid.add(cell);
+        }
+        else {
+            // recycle view for later use
+            cell = cell || selectedCells[column + '-' + row];
+            recycledViews.push(cell);
+            grid.remove(cell);
+            selectedCells[column + '-' + row] = null;
+        }
+
+        // fire off the child click event
+        if (options.click) {
+            options.click({
+                source: source,
+                x: evt.x,
+                y: evt.y,
+                globalPoint: evt.globalPoint,
+                row: row,
+                column: column,
+                selected: selected
+            });
+        }
+    });
+
+    // add access to selected cells
+
+    return grid;
+}
+
+
+$.overzicht.add(createGrid({
+    selectedCellOptions: {
+        backgroundImage: 'appicon',
+        backgroundColor: '#fff',
+
+        
+    },
+    click: function(evt) {
+        alert('You clicked ' + evt.row + 'x' + evt.column + ', and it is now ' + evt.selected);
+    }
+}));
+
+
+
+ 
+}
+
+$.overzicht.open();
+
