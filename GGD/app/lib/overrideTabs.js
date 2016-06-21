@@ -10,11 +10,8 @@
  * @param selectedOptions The options for a selected tab button.
  * @param deselectedOptions The options for a deselected tab button.
  */
-
-
-
  exports.overrideTabs = function (tabGroup, backgroundOptions, selectedOptions, deselectedOptions) {
-    // a bunch of our options need to default to 0 for everything to position correctly; we'll do it en mass:
+    // a bunch of our options need to default to 0 for everything to position correctly; we'll do it en mass: 
     deselectedOptions.top = deselectedOptions.bottom
         = selectedOptions.top = selectedOptions.bottom
         = backgroundOptions.left = backgroundOptions.right = backgroundOptions.bottom = 0;

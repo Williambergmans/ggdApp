@@ -1,28 +1,4 @@
 /**
- *                              _                _             
- *                             | |              | |            
- *    __ _ _ __  _ __   ___ ___| | ___ _ __ __ _| |_ ___  _ __ 
- *   / _` | '_ \| '_ \ / __/ _ \ |/ _ \ '__/ _` | __/ _ \| '__|
- *  | (_| | |_) | |_) | (_|  __/ |  __/ | | (_| | || (_) | |   
- *   \__,_| .__/| .__/ \___\___|_|\___|_|  \__,_|\__\___/|_|   
- *        | |   | |                                            
- *        |_|   |_|  
- *      
- *      
- * @overview
- * This is the controller file for the details View. The Contact details displays 
- * information passed in from the Directory View
- *
- * @copyright
- * Copyright (c) 2014 by Appcelerator, Inc. All Rights Reserved.
- *
- * @license
- * Licensed under the terms of the Apache Public License
- * Please see the LICENSE included with this distribution for details.
- */
-
-
-/**
  * Instantiate the variables assocaited with this controller
  */
 var _args = arguments[0] || {},
@@ -37,10 +13,6 @@ $.name.text = _args.calamiteitTitel;
 $.informatie.text = _args.about;
 $.wattedoen.text = _args.omschrijving;
 $.locatieLabel.text = _args.locatie;
-//$.company.text = _args.company;
-//$.phone.text = _args.phone;
-//$.email.text = _args.email;
-//$.im.text = _args.im || _args.firstName+"."+_args.lastName;
 
 
 /**
@@ -57,14 +29,12 @@ $.locatieLabel.text = _args.locatie;
 		//tilt:45
 	});
  
-
 if(OS_IOS){
 $.details.hideTabBar({animated:true});
 }
 /**
  * Create the Map Annotation to the latitude and longitude assigned to the user.
  */
-
 var mapAnnotation = Map.createAnnotation({
     latitude: _args.latitude || 51.400000,
     longitude: _args.longitude || 5.000000,
@@ -83,14 +53,10 @@ var mapAnnotation = Map.createAnnotation({
  */
 $FM.exists(_args.id) && $.addFavoriteBtn.setTitle("- Verwijder uit favorieten");
 
-
-
 /**
  * Appcelerator Analytics Call
  */
 Ti.Analytics.featureEvent(Ti.Platform.osname+".details.viewed");
-
-
 
 /**
  * Function to Email the Contact using the native email tool
@@ -154,25 +120,15 @@ function callContact(){
 	 */
 	dialog.addEventListener('click', function(e){
 		 if (e.index !== e.source.cancel){
-	    
-	     	// IF WE ARE BUILDING FOR DEVELOPMENT PURPOSES - TRY CALLING A FAKE NUMBER
-	      	if(ENV_DEV){
-	      		Ti.Platform.openURL("tel:+15125551212");
-	      	}
-	      	// ELSE IF WE ARE BUILDING PRODUCTION - THEN USE THE LISTED NUMBER
-	      	else if(ENV_PRODUCTION){
+
 	      		Ti.Platform.openURL("tel:"+_args.phone);
-	      	}
 	    }  
-	});
-	
+	});	
 	/**
 	 * After everything is setup, we show the Alert Dialog to the User
 	 */
 	dialog.show();
-	 
 };
-
 /**
  * Toggle favorites Status
  */

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Appcelerator" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+      <item name="colorPrimary">@color/primary</item>
+      <item name="colorPrimaryDark">@color/primaryDark</item>      
+      <item name="colorAccent">@color/primaryDark</item>
+      <item name="colorControlHighlight">@color/colorHighlight</item>      
+      <item name="colorControlActivated">@color/colorActivated</item>      
+      <item name="android:navigationBarColor">@color/primary</item>
+      <item name="android:statusBarColor">@color/primaryDark</item>
+      <item name="android:textColorPrimary">@color/textPrimary</item>
+      <item name="android:textColorSecondary">@color/textSecondary</item>  
+      <item name="android:homeAsUpIndicator">@drawable/logo</item>
+     <item name="android:windowBackground">@drawable/background</item>
+    <item name="android:windowNoTitle">true</item>   
+    </style>
+    <color name="colorActivated">#caeeff</color>
+    <color name="primary">#1A2C54</color>
+    <color name="primaryDark">#1A2C54</color>  
+    <color name="textPrimary">#fff</color>
+    <color name="accent">#fff</color>
+    <color name="textSecondary">#fff</color>
+    <color name="colorHighlight">#fff</color>
+    <style name="Theme.NoActionBar" parent="@style/Theme.AppCompat">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.YesActionBar" parent="@style/Theme.AppCompat">
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+    </style>
+</resources>        

@@ -6,18 +6,7 @@ var _args = arguments[0] || {}, // Any passed in arguments will fall into this p
     userLong,
     userLat,
     calamiteiten = null, // Array placeholder for all information
-    indexes = [];
-// Array placeholder for the ListView Index (used by iOS only);
-
-if (!Titanium.Geolocation.hasLocationPermissions(Titanium.Geolocation.AUTHORIZATION_ALWAYS)) {
-	Titanium.Geolocation.requestLocationPermissions(Titanium.Geolocation.AUTHORIZATION_ALWAYS, function(result) {
-		if (!result.success) {
-			//no location permissions flow triggers
-		} else {
-			//do something
-		}
-	});
-}
+    indexes = []; // Array placeholder for the ListView Index (used by iOS only);
 
 _args.kilometer = Ti.App.Properties.getInt("kilometer");
 
@@ -26,6 +15,9 @@ if (_args.kilometer == null) {
 
 }
 
+/**
+ *  function to get location
+ */
 function getLocation() {
 
 	if (Ti.Network.online) {
@@ -37,23 +29,29 @@ function getLocation() {
 				return;
 			}
 			$.kaart.addEventListener("focus", function(e) {
-
+                 // if location is set trigger the map function
 				getMap();
 			});
-
+            // set latitude variable
 			userLong = e.coords.longitude;
+			   // set longitude variable
 			userLat = e.coords.latitude;
 		});
 	} else {
+		// if there's no internet
 		alert("Er is een Internet connectie nodig om uw locatie te bepalen");
 	}
 
 }
-
+// use get location function
 getLocation();
 
-function getMap() {
 
+/**
+ *  function to show map
+ */
+function getMap() {
+// add view
 	var wrapperView = Ti.UI.createView();
 	// Full screen
 	var containerView = Ti.UI.createView({// Set height appropriately
@@ -61,7 +59,8 @@ function getMap() {
 		top : 0
 	}); userLong;userLat;
 	kilometer = _args.kilometer;
-
+	
+	// set the right map zoom
 	if (kilometer == 1000) {
 		latDelta = 0.025;
 		longDelta = 0.025;
@@ -78,8 +77,9 @@ function getMap() {
 		latDelta = 0.6;
 		longDelta = 0.6;
 	}
-
+    // use map module
 	var Map = require('ti.map');
+	// create map and show userlocation
 	var mapview = Map.createView({
 		mapType : Map.NORMAL_TYPE,
 		region : {
@@ -97,10 +97,11 @@ function getMap() {
 
 	var dataArray = [];
 
-	//We execute the function to show the data for the first view
+	//We execute the function to show the data for annotations
 	getCalamiteitData();
 
 	var json;
+
 
 	function getCalamiteitData() {
 		//function to use HTTP to connect to a web server and transfer the data.
@@ -129,9 +130,13 @@ function getMap() {
 		};
 	};
 
+
+/**
+ *  function to show annotations of calamiteiten on map
+ */
 	function getAnnotations(calamiteiten) {
 		var annotations = [];
-
+       // loop through array of calamiteiten to create annotations 
 		for (var i = 0; i < calamiteiten.length; i++) {
 
 			var pin = Map.createAnnotation({
@@ -177,7 +182,7 @@ function getMap() {
 
 		}
 	}
-
+// create user distance circle
 	var circle = Map.createCircle({
 		center : {
 			latitude : userLat,

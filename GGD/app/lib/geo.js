@@ -1,3 +1,7 @@
+/**
+ *  not used in demo! script to get location name from latitude and longitude
+ */
+
 var GOOGLE_BASE_URL = 'http://maps.google.com/maps/api/geocode/json?address=';
 var ERROR_MESSAGE = 'There was an error geocoding. Please try again.';
 exports.LATITUDE_BASE = 37.368344;
@@ -12,7 +16,7 @@ var GeoData = function(title, latitude, longitude) {
 };
 
 exports.forwardGeocode = function(address, callback) {
-	if (Ti.Platform.osname === 'mobileweb') {
+	if (Ti.Platform.osname === 'mobileweb') { 
 		forwardGeocodeWeb(address, callback);
 	} else {
 		forwardGeocodeNative(address, callback);

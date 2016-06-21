@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Alloy>
+	<Window id="account" backgroundColor="transparent">
+		<View id="accountView">
+			<ImageView id="logo" image="/logo.png"/>
+			<Label id="login" class="logBtn">Log in</Label>
+			<Label id="register" class="regBtn">registreer</Label>
+			<Label id="gast" class="guestBtn">Ga verder als gast</Label>
+		</View>
+	</Window>
+</Alloy>

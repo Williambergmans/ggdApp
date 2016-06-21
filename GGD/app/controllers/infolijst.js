@@ -1,28 +1,4 @@
-/**
- *                              _                _             
- *                             | |              | |            
- *    __ _ _ __  _ __   ___ ___| | ___ _ __ __ _| |_ ___  _ __ 
- *   / _` | '_ \| '_ \ / __/ _ \ |/ _ \ '__/ _` | __/ _ \| '__|
- *  | (_| | |_) | |_) | (_|  __/ |  __/ | | (_| | || (_) | |   
- *   \__,_| .__/| .__/ \___\___|_|\___|_|  \__,_|\__\___/|_|   
- *        | |   | |                                            
- *        |_|   |_|  
- *      
- *      
- * @overview
- * This is the controller file for the Directory View. The directory view loads data from 
- * a flat file, and derives a Sectioned and Indexed (iOS) ListView displaying all contacts.
- * The Directory has two ListView Templates, one for standard contacts, the other to denote
- * that you have a marked the contact as a Bookmark (or Favorite). Also, the Directory View
- * can be filtered so that it only displays bookmarked or favorited contacts.
- *
- * @copyright
- * Copyright (c) 2014 by Appcelerator, Inc. All Rights Reserved.
- *
- * @license
- * Licensed under the terms of the Apache Public License
- * Please see the LICENSE included with this distribution for details.
- */
+
 
 /**
  * Instantiate the local variables for this controller
@@ -79,11 +55,7 @@ function init(){
 			if(json.length == 0){
 				alert() = "The database row is empty"; 
 			}
-            //alert(json);
-			
-			//Emptying the data to refresh the view
-			//dataArray = [];
-				
+   				
 				builtListview(json);
 				
 		 
@@ -434,13 +406,6 @@ if(OS_IOS){
 		init();
 	}
 	
-	/* 
-	 * Assign `editaction` event listener to ListView 
-	 * 
-	 * NOTE: Updated to 'editaction' instead of 'rowAction' per
-	 * ticket
-	 * https://jira.appcelerator.org/browse/TIMOB-19096
-	 */
 	$.listView.addEventListener("editaction", onRowAction);
 }
 

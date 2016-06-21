@@ -1,3 +1,7 @@
+/**
+ *  not used in demo! script used in alloy.js for checking permission 
+ */
+
 /* global ENV_PROD */
 
 var moment = require('alloy/moment');
@@ -6,13 +10,13 @@ var Log = module.exports = _.extend({}, Backbone.Events);
 
 Log.history = '';
 
-Log.args = function() {
+Log.args = function() { 
 	_log(arguments);
 };
 
 Log.argsWithoutApis = function() {
 	_log(arguments, {
-		withoutApis: true
+		withoutApis: true 
 	});
 };
 

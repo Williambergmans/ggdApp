@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<Alloy>
+	<Window id="account" title="Mijn account" tabBarHidden="true">
+		<TableView id="table" separatorColor="transparent">
+			<TableViewSection>
+				<HeaderView>
+					<View class="view-headerview-form">
+						<Label class="label-tableviewsection-header left-buffer" text="Account informatie"/>
+					</View>
+				</HeaderView>
+				<TableViewRow class="tableviewrow-form-row" id="title" hasChild="true">
+					<View>
+						<Label class="label-row-title" title="Voornaam" value="Voornaam" id="voornaamLbl">Voornaam</Label>
+						<Label class="label-row-subtitle" text="" id="voornaamValue"/>
+					</View>
+					<View class="view-row-separator"/>
+				</TableViewRow>
+				<TableViewRow class="tableviewrow-form-row" id="title" hasChild="true">
+					<View>
+						<Label class="label-row-title" title="Achternaam" value="Achternaam" id="achternaamLbl">Achternaam</Label>
+						<Label class="label-row-subtitle" text="" id="achternaamValue"/>
+					</View>
+					<View class="view-row-separator"/>
+				</TableViewRow>
+				<TableViewRow class="tableviewrow-form-row" id="title" hasChild="true">
+					<View>
+						<Label class="label-row-title" title="Email" value="Email" id="emailLbl">Email</Label>
+						<Label class="label-row-subtitle" text="" id="emailValue"/>
+					</View>
+				</TableViewRow>
+			</TableViewSection>
+			<TableViewSection>
+				<HeaderView>
+					<View class="view-headerview-form">
+						<Label class="label-tableviewsection-header left-buffer" text="Optionele informatie"/>
+					</View>
+				</HeaderView>
+				<TableViewRow class="tableviewrow-form-row" id="title" hasChild="true">
+					<View>
+						<Label class="label-row-title" title="Telefoonnummer" value="Telefoonnummer" id="telLbl">Telefoonnummer</Label>
+						<Label class="label-row-subtitle" text="" id="telValue"/>
+					</View>
+					<View class="view-row-separator"/>
+				</TableViewRow>
+			</TableViewSection>
+		</TableView>
+		 <Label  class="icon icon-long-btn">Uitloggen</Label>
+	</Window>
+</Alloy>

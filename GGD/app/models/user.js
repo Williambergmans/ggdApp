@@ -1,5 +1,5 @@
 /**
- * @author William Bergmans
+ * @author William Bergmans - not used in demo!
  */
 var moment = require('alloy/moment');
 var USERNAME = 'user',
@@ -8,7 +8,7 @@ var USERNAME = 'user',
 exports.definition = {
 	config: {
 		"columns": {
-			"username":"text primary key",
+			"username":"text primary key", 
             "realname":"text",
             "email":"text",
 			"loggedIn":"integer",

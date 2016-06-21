@@ -11,9 +11,6 @@ var _args = arguments[0] || {}, // Any passed in arguments will fall into this p
  * Function to inialize the View, gathers data from the flat file and sets up the ListView
  */
 function init(){
-	
-	 
-	
 		
 //Array to store the data from the todo list
 	var dataArray = [];
@@ -163,14 +160,9 @@ function callContact(){
 	dialog.addEventListener('click', function(e){
 		 if (e.index !== e.source.cancel){
 	    
-	     	// IF WE ARE BUILDING FOR DEVELOPMENT PURPOSES - TRY CALLING A FAKE NUMBER
-	      	if(ENV_DEV){
-	      		Ti.Platform.openURL("tel:+15125551212");
-	      	}
-	      	// ELSE IF WE ARE BUILDING PRODUCTION - THEN USE THE LISTED NUMBER
-	      	else if(ENV_PRODUCTION){
+	     	
 	      		Ti.Platform.openURL("tel:"+_args.phone);
-	      	}
+	      	
 	    }  
 	});
 	

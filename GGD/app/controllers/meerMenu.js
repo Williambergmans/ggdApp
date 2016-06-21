@@ -1,3 +1,6 @@
+/**
+ *  Menu items
+ */
 var items = [
 	    {
 	        menuicon: {text: "\uf041"}, 
@@ -29,9 +32,10 @@ var items = [
 	 } ); 
 
 	*/
+	// set menu items to screen
 $.elementsList.sections[0].setItems(items); 
 
-
+// on menu item click
  $.elementsList.addEventListener('itemclick', function(e){
  	
  	 var row = $.elementsList.sections[0].getItemAt(e.itemIndex);

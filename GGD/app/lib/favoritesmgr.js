@@ -45,7 +45,7 @@ var FavoritesManager = {
 		/**
 		 * Update the bookmarks array in Ti.App.Properties
 		 */
-		Ti.App.Properties.setList("favorites", this.favorites);
+		Ti.App.Properties.setList("favorieten", this.favorites);
 	},
 	
 	/**
@@ -64,7 +64,7 @@ var FavoritesManager = {
 	    /**
 		 * Update the bookmarks array in Ti.App.Properties
 		 */
-		Ti.App.Properties.setList("favorites", this.favorites); 
+		Ti.App.Properties.setList("favorieten", this.favorites); 
 		}
 		
 };

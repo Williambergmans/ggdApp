@@ -1,0 +1,11 @@
+"#kaart": {
+	
+     //mapType: Alloy.Globals.map.NORMAL_TYPE,
+
+	region: {
+		longitude: 5.000000,
+		latitude: 51.400000,
+        latitudeDelta: 4,
+        longitudeDelta: 4,
+    }
+},

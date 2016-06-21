@@ -132,7 +132,7 @@ button9.addEventListener('click',function(e)
 });
 
 
-
+// show buttons
 function onOpen(){
 	
 $.overzicht.add(button1);

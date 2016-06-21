@@ -1022,7 +1022,7 @@ function createMailView() {
 		font : {
 			fontSize : 18
 		},
-		text : 'Email Adres',
+		text : 'E-mail Adres',
 		textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
 		top : 10,
 		width : Ti.UI.SIZE,

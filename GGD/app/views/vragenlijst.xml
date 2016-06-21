@@ -30,7 +30,7 @@
 							<Label class="label-row-title" title="Datum" id="vraag2Titel">vraag2</Label>
 							<View id="innerView">
 								<Button id="true2" class="trueBtn"></Button>
-								<Button id="false2" class="falseBtn"></Button> 
+								<Button id="false2" class="falseBtn"></Button>  
 							</View>
 						</View> 
 						<View class="view-row-separator"/>

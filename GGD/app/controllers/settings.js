@@ -1,3 +1,6 @@
+/**
+ * Instantiate the local variables for this controller
+ */
 var _args = arguments[0] || {}, // Any passed in arguments will fall into this property
     userLong,
     userLat,
@@ -10,6 +13,9 @@ if (_args.kilometer == null) {
 
 }
 $.userLocStraalValue.text = kilometer / 1000 + " km"; 
+
+userId = Ti.App.Properties.getString("userId");
+
 
 
 function getLocation() {
@@ -266,7 +272,7 @@ $.straal.addEventListener('click', function(e) {
 			color : '#000',
 			backgroundColor : 'none'
 		});
-	}
+	} 
 	if (OS_ANDROID) {
 		var km15 = Ti.UI.createButton({
 			font : {
@@ -374,16 +380,41 @@ $.straal.addEventListener('click', function(e) {
 
 	submitButton.addEventListener('click', function() {
 
-		if (kilometer != null) {
-			// $.titleValue.text = fieldTitle.value;
-			// $.titleValue.value = fieldTitle.value;
+	_args.kilometer = kilometer;
 
-			_args.kilometer = kilometer;
+	var request = Ti.Network.createHTTPClient({
+				onload : function(e) {
+					// alert('Uw melding is verzonden');
+					// json = JSON.parse(this.responseText);
+					console.log(this.responseText);
+				},
+				onerror : function(e) {
+					console.log(e);
+					Ti.API.debug(e.error);
+					//alert('There was an error during the conection');
+				},
+				//timeout:0,
+			});
+			//Request the data from the web service, Here you have to change it for your local ip
+			request.open("POST", "http://www.williambergmans.nl/ggd/public/updateUserData");
+			var params = ( {
+				"id" : "0",
+				"phoneid" : userId,
+				"userlat" : userLat,
+				"userlong" : userLong,
+				"distance" : kilometer
+			});
+
+			request.send(params);
+	
+				
+		
+		
 			myModal.close();
 			$.userLocStraalValue.text = _args.kilometer / 1000 + " km";
-
-		}
-
+			
+			
+		
 	});
 	wrapperView.add(backgroundView);
 	wrapperView.add(containerView);
@@ -533,8 +564,6 @@ function addLocationmap() {
 
 	submitButton.addEventListener('click', function() {
 
-		alert(textfield.value + LocationCoordinates.longitude);
-
 		self.close();
 
 	});
@@ -583,7 +612,6 @@ function addLocationmap() {
 	});
 
 	// assemble view hierarchy
-
 	wrapperView.add(backgroundView);
 	wrapperView.add(containerView);
 	containerView.add(separatorTop);
@@ -600,28 +628,9 @@ function addLocationmap() {
 
 }
 
-/*
-
- $.addLocation.addEventListener('click', function(e) {
-
- addLocationmap();
-
- });
-
- */
-
-/*
-
- $.account.addEventListener('click', function(e) {
-
- var account = Alloy.createController('account').getView();
- //account.open();
- Alloy.Globals.Navigator.open('account', {displayHomeAsUp:true});
-
- });
-
- */
 
 function outputState() {
 	Ti.API.info('Switch value: ' + $.notificationSwitch.value);
 } 
+
+

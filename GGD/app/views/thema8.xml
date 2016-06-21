@@ -17,14 +17,11 @@
 					<Label id="info" text="Info" class="h5 gray"/>
 				</View>
 			</View>
+			<Label id="callBtn" class="icon icon-long-btn icon-phone" onClick="callContact">\uf095 Bel</Label><!--onClick="callContact" -->
+			<Label  class="lblMiddle gray">Of</Label>
+			<Label id="emailBtn" class="icon icon-long-btn icon-email" onClick="emailContact">\uf0e0 Mail</Label><!-- onClick="emailContact" -->
+			<View class="top-buffer gray-line bottom"/>
 
-				<Label id="callBtn" class="icon icon-long-btn icon-phone" onClick="callContact">\uf095 Bel</Label><!--onClick="callContact" -->
-				<Label  class="lblMiddle gray">Of</Label>
-			    <Label id="emailBtn" class="icon icon-long-btn icon-email" onClick="emailContact">\uf0e0 Mail</Label> <!-- onClick="emailContact" -->	  
-
-				<View class="top-buffer gray-line bottom"/>  
-				
 		</ScrollView>
 	</Window>
-</Alloy> 
-  
+</Alloy>

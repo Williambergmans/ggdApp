@@ -11,9 +11,6 @@ var _args = arguments[0] || {}, // Any passed in arguments will fall into this p
  */
 function init(){
 	
-	 
-	
-		
 //Array to store the data from the todo list
 	var dataArray = [];
 	
@@ -47,33 +44,14 @@ function init(){
 			if(json.length == 0){
 				alert() = "The database row is empty";   
 			}
-            //alert(json);
-			
-			//Emptying the data to refresh the view     
-			//dataArray = [];
-				
 				builtListview(json);
 				
 		 
 		 }; 
 	};
-	 
 
-	
 	function builtListview(information)
 	{
-	
-	
-	/**
-	 * Access the FileSystem Object to read in the information from a flat file (lib/userData/data.js)
-	 * DOCS: http://docs.appcelerator.com/platform/latest/#!/api/Titanium.Filesystem
-	 */
-	//var file = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory + "infoData/info.json"); 
-	
-	/**
-	 * Populate the information variable from the file this call returns an array
-	 */
-	//information = JSON.parse(file.read().text).information; 
 	 
 	 var infoTitel = information[1].titel;
 	 var infoPhoto = information[1].photo;
@@ -158,15 +136,8 @@ function callContact(){
 	 */
 	dialog.addEventListener('click', function(e){
 		 if (e.index !== e.source.cancel){
-	    
-	     	// IF WE ARE BUILDING FOR DEVELOPMENT PURPOSES - TRY CALLING A FAKE NUMBER
-	      	if(ENV_DEV){
-	      		Ti.Platform.openURL("tel:+15125551212");
-	      	}
-	      	// ELSE IF WE ARE BUILDING PRODUCTION - THEN USE THE LISTED NUMBER
-	      	else if(ENV_PRODUCTION){
+	    	  
 	      		Ti.Platform.openURL("tel:"+_args.phone);
-	      	}
 	    }  
 	});
 	

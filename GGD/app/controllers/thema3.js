@@ -158,15 +158,9 @@ function callContact(){
 	 */
 	dialog.addEventListener('click', function(e){
 		 if (e.index !== e.source.cancel){
+		 	
+		 	Ti.Platform.openURL("tel:"+_args.phone);
 	    
-	     	// IF WE ARE BUILDING FOR DEVELOPMENT PURPOSES - TRY CALLING A FAKE NUMBER
-	      	if(ENV_DEV){
-	      		Ti.Platform.openURL("tel:+15125551212");
-	      	}
-	      	// ELSE IF WE ARE BUILDING PRODUCTION - THEN USE THE LISTED NUMBER
-	      	else if(ENV_PRODUCTION){
-	      		Ti.Platform.openURL("tel:"+_args.phone);
-	      	}
 	    }  
 	});
 	

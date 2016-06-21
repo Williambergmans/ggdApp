@@ -7,7 +7,12 @@ var _args = arguments[0] || {}, // Any passed in arguments will fall into this p
     userLong,
     userLat,
     calamiteiten = null, // Array placeholder for all information
+    
+    
     kilometer = Ti.App.Properties.getInt("kilometer");
+   
+    
+    
 
 _args.kilometer = Ti.App.Properties.getInt("kilometer");
 
@@ -15,6 +20,7 @@ if (_args.kilometer == null) {
 	_args.kilometer = 1000;
 	Ti.App.Properties.setInt('kilometer', 1000);
 }
+
 
 /**
  * Override a tab group's tab bar on iOS.
@@ -34,15 +40,6 @@ var util = require('overrideTabs');
 
 if (OS_IOS) {
 
-	/*
-	 util.overrideTabs(
-
-	 $.index, // The tab group
-	 { backgroundColor: '#e28833' }, // View parameters for the background
-	 { backgroundColor: '#e25533', color: '#fff', style: 0 }, // View parameters for selected tabs
-	 { backgroundColor: '#e28833', color: '#fff', style: 0 } // View parameters for deselected tabs
-	 );
-	 */
 	util.overrideTabs($.index, // The tab group
 	{
 		backgroundColor : '#72D5FF'
@@ -60,19 +57,6 @@ if (OS_IOS) {
 	);
 
 };
-
-//Ti.API.info("Integer: "+Ti.App.Properties.getInt('myInt, 20));
-//alert(Ti.App.Properties.getInt("kilometer"));
-
-if (!Titanium.Geolocation.hasLocationPermissions(Titanium.Geolocation.AUTHORIZATION_ALWAYS)) {
-	Titanium.Geolocation.requestLocationPermissions(Titanium.Geolocation.AUTHORIZATION_ALWAYS, function(result) {
-		if (!result.success) {
-			//no location permissions flow triggers
-		} else {
-			//do something
-		}
-	});
-}
 
 /**
  * Global Navigation Handler
@@ -116,10 +100,13 @@ Alloy.Globals.Navigator = {
 		}
 	}
 };
-
 Alloy.Globals.tabGroup = $.index;
+// The app starts on tab 0
 Alloy.Globals.currentTab = 0;
 
+/**
+ * Adding items to the android navigation menu on the second tab
+ */
 function doopen(evt) {
 
 	if (OS_ANDROID) {
@@ -141,40 +128,42 @@ function doopen(evt) {
 
 				// Use action bar search view
 				var search = Ti.UI.Android.createSearchView({
-					hintText : "Zoek"
+					hintText : "Zoek",
+					color : "#fff"
 				});
-
+				// add search icon
 				item1 = menu.add({
 					title : 'Table Search',
 					actionView : search,
 					icon : (Ti.Android.R.drawable.ic_menu_search ? Ti.Android.R.drawable.ic_menu_search : "my_search.png"),
 					showAsAction : Ti.Android.SHOW_AS_ACTION_IF_ROOM | Ti.Android.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW
 				});
-
+				// on seach button click, fire search funtion
 				search.addEventListener("change", function(e) {
-
 					Ti.App.fireEvent("onSearchChange", e);
 
 				});
-
+				// favorite menu item
 				item2 = e.menu.add({
 					title : "Favorite",
 					showAsAction : Ti.Android.SHOW_AS_ACTION_ALWAYS,
 					icon : 'favorite.png'
 				});
+				//on favorite icon click, navigate to favorite window
 				item2.addEventListener("click", function(e) {
 					Alloy.Globals.Navigator.open("notificatielijst", {
 						restrictToFavorites : true,
-						title : "Favorites",
+						title : "Favorieten",
 						displayHomeAsUp : true
 					});
 				});
-
+				//refresh menu item
 				item3 = e.menu.add({
 					title : "Refresh",
 					showAsAction : Ti.Android.SHOW_AS_ACTION_ALWAYS,
 					icon : 'refresh.png'
 				});
+				//on refresh icon click, refresh notification list
 				item3.addEventListener("click", function(e) {
 					Ti.App.fireEvent("androidRefresh", e);
 				});
@@ -182,7 +171,7 @@ function doopen(evt) {
 				break;
 			}
 		};
-
+		// check the tab index
 		Alloy.Globals.tabGroup.addEventListener("focus", function(evt) {
 			if ( typeof evt.index !== "undefined") {
 				activity.invalidateOptionsMenu();
@@ -225,14 +214,18 @@ function getCalamiteitData() {
 
 	};
 };
-
+// function to get calamiteiten array
 function getCalamiteiten(calamiteiten) {
 	_args.calamiteiten = calamiteiten;
 
 }
 
+/**
+ * Pushwoosh module inplementation
+ */
 if (OS_IOS) {
 
+	// get pushwoosh module
 	var pushnotifications = require('com.pushwoosh.module');
 	Ti.API.info("module is => " + pushnotifications);
 
@@ -247,12 +240,16 @@ if (OS_IOS) {
 
 				phoneId = e.registrationId;
 				_args.phoneId = e.registrationId;
-
+				
+				
+				 userId =  Ti.App.Properties.setString('userId', e.registrationId);
+ 
+		
+   
+				
 				if (true) {
 					var request = Ti.Network.createHTTPClient({
 						onload : function(e) {
-							// alert('Uw melding is verzonden');
-							// json = JSON.parse(this.responseText);
 							console.log(this.responseText);
 						},
 						onerror : function(e) {
@@ -262,7 +259,7 @@ if (OS_IOS) {
 						},
 						//timeout:0,
 					});
-					//Request the data from the web service, Here you have to change it for your local ip
+					//Request the data from the web service
 					request.open("POST", "http://www.williambergmans.nl/ggd/public/postUserData");
 					var params = ( {
 						"id" : "0",
@@ -288,10 +285,9 @@ if (OS_IOS) {
 		}
 	});
 
-	setTimeout(function() {
-
-	}, 2000);
-
+	/**
+	 * Get location of user
+	 */
 	function getLocation() {
 
 		if (Ti.Network.online) {
@@ -312,9 +308,12 @@ if (OS_IOS) {
 
 	}
 
+	//
 	getLocation();
 
+	// timeout to get location before sendig to backend
 	setTimeout(function() {
+		// check if userlat has a value
 		if (userLat != null) {
 			var request = Ti.Network.createHTTPClient({
 				onload : function(e) {
@@ -340,11 +339,16 @@ if (OS_IOS) {
 			});
 
 			request.send(params);
+
 		}
 
 	}, 2000);
 
 }
 
+
+
+
+// open index
 $.index.open();
 

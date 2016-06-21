@@ -1,8 +1,4 @@
-
-".container" : {
-  
-}
-"#map": {
+"#kaart": {
 	
      //mapType: Alloy.Globals.map.NORMAL_TYPE,
 
@@ -11,5 +7,5 @@
 		latitude: 51.400000,
         latitudeDelta: 4,
         longitudeDelta: 4,
-    }
+   } 
 },

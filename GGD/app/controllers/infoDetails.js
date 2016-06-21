@@ -13,25 +13,17 @@ var _args = arguments[0] || {},
 $.titel.text = _args.titel;
 $.info.text = _args.info;
 $.photo.image = _args.photo;
-//$.phone.text = _args.phone;
-//$.email.text = _args.email; 
 
- 
 /**
  * Check that the contact is not already a favorite, and update the favorites button
  * title as required.
  */
 $FM.exists(_args.id) && $.addFavoriteBtn.setTitle("- Remove From Favorites");
 
-
-
 /**
  * Appcelerator Analytics Call
  */
 Ti.Analytics.featureEvent(Ti.Platform.osname+".profile.viewed");
-
-
-
 
 /**
  * Function to Email the Contact using the native email tool
@@ -96,14 +88,7 @@ function callContact(){
 	dialog.addEventListener('click', function(e){
 		 if (e.index !== e.source.cancel){
 	    
-	     	// IF WE ARE BUILDING FOR DEVELOPMENT PURPOSES - TRY CALLING A FAKE NUMBER
-	      	if(ENV_DEV){
-	      		Ti.Platform.openURL("tel:+15125551212");
-	      	}
-	      	// ELSE IF WE ARE BUILDING PRODUCTION - THEN USE THE LISTED NUMBER
-	      	else if(ENV_PRODUCTION){
 	      		Ti.Platform.openURL("tel:"+_args.phone);
-	      	}
 	    }  
 	});
 	
@@ -113,13 +98,6 @@ function callContact(){
 	dialog.show();
 	 
 };
-
-
-
-
- 
-
-
 
 /**
  * Toggle favorites Status

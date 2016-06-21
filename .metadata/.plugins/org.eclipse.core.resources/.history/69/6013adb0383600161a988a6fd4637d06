@@ -1,0 +1,160 @@
+/**
+ * 	Style for The User Template
+ */
+".template":{
+	height:100,
+	width: Ti.UI.FILL,
+	backgroundColor: "#efefef"
+},
+
+".favorite":{
+	font:{
+		fontSize: 25,
+		fontFamily:"icomoon",
+	},
+	color:"#038BC8",
+	text:"\uf005",	
+	right: 10
+},
+
+".title":{
+	font:{
+		fontSize: 14
+	},
+	left: 85,
+	color: "#444",
+	right:10,
+},
+
+".avatar":{
+	borderWidth: 1,
+	borderColor: "#acacac",
+	height: 75,
+	width: 75,
+	top: 12,
+	left:5,
+	borderRadius: 35
+},
+
+".smoothAvatarBorderRadius": {
+	borderWidth: 1.5,
+	borderColor: "#acacac",
+	height: 75,
+	width: 75,
+	top: 12,
+	left: 0,
+	borderRadius: 35,
+	opacity: 0.6
+}
+ 
+".search":{ 
+	backgroundColor: "#fff",
+	borderWidth:0,
+	borderColor:"#fff",
+	tintColor: "#C41230",
+	hintText: "Search",
+	barColor: "#fff",
+	showBookmark:true
+},
+
+
+"#listView":{
+	tintColor: "#666",
+	backgroundColor:"#fff"
+}
+
+".lblMiddle":{
+	//height: 50,
+    width: Ti.UI.FILL,
+	textAlign: "center",
+	font:{
+		fontSize: 16
+	},
+	left: 10,
+	right: 10,
+	bottom: 10
+},
+
+".icon-long-btn":{
+	height: 50, 
+    width: Ti.UI.FILL,
+	color: "#fff",
+	borderRadius: 2,
+	backgroundColor: "#e28833",
+	textAlign: "center",
+	font:{
+		fontSize: 18
+	},
+	left: 20,
+	right: 20,
+	bottom: 10
+},
+
+".trueBtn[platform=android]": {
+
+	right:"1",
+	title:"\uf05d",
+	textAlign: "center",
+	color: "#d4d4d4",
+	backgroundColor: "none",
+	font:{
+		fontFamily: 'fontawesome', 
+		fontSize: 50 
+	},	
+},
+
+".trueBtn":{
+
+	right:"10",
+	title:"\uf05d",
+	textAlign: "center",
+	color: "#d4d4d4",
+	backgroundColor: "none",
+	font:{
+		fontFamily: 'fontawesome', 
+		fontSize: 50 
+}, 
+
+
+".falseBtn":{
+	right:"0",
+	title:"\uf05c",
+	textAlign: "center",
+	backgroundColor: "none",
+	color: "#d4d4d4",
+	font:{
+		fontFamily: 'fontawesome', 
+		fontSize: 50
+	},	
+},
+
+"#innerView":
+{
+layout:"horizontal",
+width:Ti.UI.SIZE,
+height: Ti.UI.SIZE,
+right: 20
+},
+
+".tableviewrow-form-row":{
+	height: "80",
+	backgroundColor: "#fff"
+},
+
+ ".icon-long-btn":{
+ 	top:20,
+	height: 50,
+    width: Ti.UI.FILL,
+	color: "#fff",
+	borderRadius: 2,
+	backgroundColor: "#72D5FF",
+	textAlign: "center",
+	font:{
+		fontSize: 18
+	},
+	left: 10,
+	right: 10, 
+},
+
+
+

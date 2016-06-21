@@ -1,17 +1,14 @@
-
-
-
+/**
+ * @author William Bergmans - not used in demo!
+ */
 var loginReq = Titanium.Network.createHTTPClient();
  
 $.loginButton.addEventListener('click',function(e)
 {
-	
 	var username = $.username;
 	var password = $.password;
-	
-	
-	
-    if (username.value != '' && password.value != '')
+		
+    if (username.value != '' && password.value != '') 
     {
         loginReq.open("POST","http://localhost:8888/post_auth.php");
         var params = {

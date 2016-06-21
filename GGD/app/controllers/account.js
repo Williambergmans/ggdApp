@@ -1,7 +1,10 @@
+/**
+ * @author William Bergmans - not used in demo!
+ */
 $.login.addEventListener('click', function(e) {
 	
 Alloy.Globals.Navigator.open('login', {displayHomeAsUp:true});
-var login = Alloy.createController('login').getView();
+var login = Alloy.createController('login').getView(); 
     //login.open();  
  
 });

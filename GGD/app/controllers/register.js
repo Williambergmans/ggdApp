@@ -1,3 +1,6 @@
+/**
+ * @author William Bergmans - not used in demo!
+ */
 var testresults;
  
 function checkemail(emailAddress)

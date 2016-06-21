@@ -11,7 +11,7 @@
 				</HeaderView>
 				<TableViewRow class="tableviewrow-form-row" id="account" hasChild="true">  
 					<View>
-						<Label class="label-row-title" title="Account" value="Account" id="acccountLbl">Account</Label>
+						<Label class="label-row-title" title="Account" value="Account" id="acccountLbl">Account</Label> 
 						<Label class="label-row-subtitle" text="" id="accountValue"/>
 					</View>	
 				</TableViewRow>

@@ -1,4 +1,6 @@
-
+/**
+ * not used in demo!
+ */
 //Validators may return a value (true/false) or call a callback function in case the response is asynchronous
 
 exports.defaultValidator = function(value){
@@ -11,7 +13,7 @@ exports.email = function(email){
 };
 
 exports.password = function(value){
-	return value && value.length > 4;
+	return value && value.length > 4; 
 };
 
 exports.number = function(value){

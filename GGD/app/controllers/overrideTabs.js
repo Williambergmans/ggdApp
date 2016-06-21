@@ -98,7 +98,7 @@ function overrideTabs(tabGroup, backgroundOptions, selectedOptions, deselectedOp
              
              background.add(tab[1] = Ti.UI.createLabel({	
          	 color: '#fff',
-             font: { fontSize:10 },
+             font: { fontSize:10 }, 
              text: 'overzicht',
              width: "33.333%",
              left:0,

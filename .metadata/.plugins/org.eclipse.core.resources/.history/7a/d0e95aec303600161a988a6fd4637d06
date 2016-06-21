@@ -1,0 +1,10 @@
+<Alloy>
+	<Window id="overzicht" title="test"  onOpen="onOpen" >
+  <ActionBar id="actionbar" title="My XML Menu"  />
+		<TitleControl>
+			<View >
+				<ImageView width="80" height="35" image ="logo.png"></ImageView>
+			</View>
+		</TitleControl>
+	</Window>
+</Alloy>       

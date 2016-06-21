@@ -90,7 +90,8 @@
 	bottom: 10
 },
 
-".trueBtn":{
+
+".trueBtn[platform=ios]":{
 
 	right:"10",
 	title:"\uf05d",
@@ -100,8 +101,23 @@
 	font:{
 		fontFamily: 'fontawesome', 
 		fontSize: 50 
+    }, 
+}, 
+
+
+".trueBtn[platform=android]": { 
+
+	right:"-30",
+	title:"\uf05d",
+	textAlign: "center",
+	color: "#d4d4d4",
+	backgroundColor: "none", 
+	font:{
+		fontFamily: 'fontawesome', 
+		fontSize: 50 
 	},	
 },
+
 
 ".falseBtn":{
 	right:"0",
@@ -115,13 +131,22 @@
 	},	
 },
 
-"#innerView":
+"#innerView[platform=android]":
 {
 layout:"horizontal",
 width:Ti.UI.SIZE,
 height: Ti.UI.SIZE,
-right: 20
+right: 0
 },
+
+"#innerView[platform=ios]":
+{
+layout:"horizontal",
+width:Ti.UI.SIZE,
+height: Ti.UI.SIZE,
+right: 10
+},
+
 
 ".tableviewrow-form-row":{
 	height: "80",
